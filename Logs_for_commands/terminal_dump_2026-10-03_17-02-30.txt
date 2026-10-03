@@ -1,0 +1,1784 @@
+Script started on 2026-10-03 17:02:30+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$                                                                                                                                                                                                                 vboxuser@Hitesh:~$                                                                                                                                                                                                            vboxuser@Hitesh:~$ cd ""%"" $"R"T"L"_"F"O"L"D"E"R"
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog dff_const3.v tb_dff_const3.v
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a/out    .out
+VCD info: dumpfile tb_dff_const3.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_dff_const3.v vcd 
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[3000000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m1. [0m[1m[37mExecuting Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[0mImported 418 cell types from liberty file.
+
+yosys> read_verilog dff_const3.v 
+
+[1m[36m2. [0m[1m[37mExecuting Verilog-2005 frontend: dff_const3.v
+[0mParsing Verilog input from `dff_const3.v' to AST representation.
+Generating RTLIL representation for module `\dff_const3'.
+Successfully finished Verilog frontend.
+
+yosys> synth -top dff_const3 
+
+[1m[36m3. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m3.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m
+[1m[36m3.1.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \dff_const3
+
+[1m[36m3.1.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \dff_const3
+Removed 0 unused modules.
+
+[1m[36m3.2. [0m[1m[37mExecuting PROC pass (convert processes to netlists).
+[0m
+[1m[36m3.2.1. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m3.2.2. [0m[1m[37mExecuting PROC_RMDEAD pass (remove dead branches from decision trees).
+[0mMarked 1 switch rules as full_case in process $proc$dff_const3.v:4$1 in module dff_const3.
+Removed a total of 0 dead cases.
+
+[1m[36m3.2.3. [0m[1m[37mExecuting PROC_PRUNE pass (remove redundant assignments in processes).
+[0mRemoved 2 redundant assignments.
+Promoted 0 assignments to connections.
+
+[1m[36m3.2.4. [0m[1m[37mExecuting PROC_INIT pass (extract init attributes).
+[0m
+[1m[36m3.2.5. [0m[1m[37mExecuting PROC_ARST pass (detect async resets in processes).
+[0mFound async reset \reset in `\dff_const3.$proc$dff_const3.v:4$1'.
+
+[1m[36m3.2.6. [0m[1m[37mExecuting PROC_ROM pass (convert switches to ROMs).
+[0mConverted 0 switches.
+
+[1m[36m3.2.7. [0m[1m[37mExecuting PROC_MUX pass (convert decision trees to multiplexers).
+[0mCreating decoders for process `\dff_const3.$proc$dff_const3.v:4$1'.
+     1/2: $0\q[0:0]
+     2/2: $0\q1[0:0]
+
+[1m[36m3.2.8. [0m[1m[37mExecuting PROC_DLATCH pass (convert process syncs to latches).
+[0m
+[1m[36m3.2.9. [0m[1m[37mExecuting PROC_DFF pass (convert process syncs to FFs).
+[0mCreating register for signal `\dff_const3.\q' using process `\dff_const3.$proc$dff_const3.v:4$1'.
+  created $adff cell `$procdff$4' with positive edge clock and positive level reset.
+Creating register for signal `\dff_const3.\q1' using process `\dff_const3.$proc$dff_const3.v:4$1'.
+  created $adff cell `$procdff$7' with positive edge clock and positive level reset.
+
+[1m[36m3.2.10. [0m[1m[37mExecuting PROC_MEMWR pass (convert process memory writes to cells).
+[0m
+[1m[36m3.2.11. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mRemoving empty process `dff_const3.$proc$dff_const3.v:4$1'.
+Cleaned up 0 empty switches.
+
+[1m[36m3.2.12. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+<suppressed ~2 debug messages>
+
+[1m[36m3.3. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.4. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module dff_const3...
+Found and reported 0 problems.
+
+[1m[36m3.5. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m3.6. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.6.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.6.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \dff_const3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m3.6.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \dff_const3.
+Performed a total of 0 changes.
+
+[1m[36m3.6.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.6.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.6.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.6.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.7. [0m[1m[37mExecuting FSM pass (extract and optimize FSM).
+[0m
+[1m[36m3.7.1. [0m[1m[37mExecuting FSM_DETECT pass (finding FSMs in design).
+[0m
+[1m[36m3.7.2. [0m[1m[37mExecuting FSM_EXTRACT pass (extracting FSM from design).
+[0m
+[1m[36m3.7.3. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.7.5. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.6. [0m[1m[37mExecuting FSM_RECODE pass (re-assigning FSM state encoding).
+[0m
+[1m[36m3.7.7. [0m[1m[37mExecuting FSM_INFO pass (dumping all available information on FSM cells).
+[0m
+[1m[36m3.7.8. [0m[1m[37mExecuting FSM_MAP pass (mapping FSMs to basic logic).
+[0m
+[1m[36m3.8. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.8.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.8.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \dff_const3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m3.8.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \dff_const3.
+Performed a total of 0 changes.
+
+[1m[36m3.8.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.8.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.8.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.8.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.9. [0m[1m[37mExecuting WREDUCE pass (reducing word size of cells).
+[0m
+[1m[36m3.10. [0m[1m[37mExecuting PEEPOPT pass (run peephole optimizers).
+[0m
+[1m[36m3.11. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.12. [0m[1m[37mExecuting ALUMACC pass (create $alu and $macc cells).
+[0mExtracting $alu and $macc cells in module dff_const3:
+  created 0 $alu and 0 $macc cells.
+
+[1m[36m3.13. [0m[1m[37mExecuting SHARE pass (SAT-based resource sharing).
+[0m
+[1m[36m3.14. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.14.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.14.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \dff_const3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m3.14.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \dff_const3.
+Performed a total of 0 changes.
+
+[1m[36m3.14.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.14.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.14.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.14.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.15. [0m[1m[37mExecuting MEMORY pass.
+[0m
+[1m[36m3.15.1. [0m[1m[37mExecuting OPT_MEM pass (optimize memories).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.2. [0m[1m[37mExecuting OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.3. [0m[1m[37mExecuting OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[0m
+[1m[36m3.15.4. [0m[1m[37mExecuting MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[0m
+[1m[36m3.15.5. [0m[1m[37mExecuting MEMORY_DFF pass (merging $dff cells to $memrd).
+[0m
+[1m[36m3.15.6. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.15.7. [0m[1m[37mExecuting MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[0m
+[1m[36m3.15.8. [0m[1m[37mExecuting OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.9. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.15.10. [0m[1m[37mExecuting MEMORY_COLLECT pass (generating $mem cells).
+[0m
+[1m[36m3.16. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.17. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.17.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.17.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.17.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.17.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.17.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.18. [0m[1m[37mExecuting MEMORY_MAP pass (converting memories to logic and flip-flops).
+[0m
+[1m[36m3.19. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.19.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.19.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \dff_const3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m3.19.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \dff_const3.
+Performed a total of 0 changes.
+
+[1m[36m3.19.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.6. [0m[1m[37mExecuting OPT_SHARE pass.
+[0m
+[1m[36m3.19.7. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.19.8. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.19.9. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.19.10. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.20. [0m[1m[37mExecuting TECHMAP pass (map to technology primitives).
+[0m
+[1m[36m3.20.1. [0m[1m[37mExecuting Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+[0mParsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+[1m[36m3.20.2. [0m[1m[37mContinuing TECHMAP pass.
+[0mUsing extmapper simplemap for cells of type $adff.
+No more expansions possible.
+<suppressed ~79 debug messages>
+
+[1m[36m3.21. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.21.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.21.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.21.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.21.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.21.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.22. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m3.22.1. [0m[1m[37mSummary of detected clock domains:
+[0m  2 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+[1m[36m3.22.2. [0m[1m[37mExtracting gate netlist of module `\dff_const3' to `<abc-temp-dir>/input.blif'..
+[0mFound matching posedge clock domain: \clk, asynchronously reset by \reset
+
+[1m[36m3.22.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+Removing global temp directory.
+
+[1m[36m3.23. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.23.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module dff_const3.
+
+[1m[36m3.23.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\dff_const3'.
+Computing hashes of 2 cells of `\dff_const3'.
+Finding duplicate cells in `\dff_const3'.
+Removed a total of 0 cells.
+
+[1m[36m3.23.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.23.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \dff_const3..
+
+[1m[36m3.23.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.24. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0mAttribute `top' found on module `dff_const3'. Setting top module to dff_const3.
+
+[1m[36m3.24.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \dff_const3
+
+[1m[36m3.24.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \dff_const3
+Removed 0 unused modules.
+
+[1m[36m3.25. [0m[1m[37mPrinting statistics.
+[0m
+=== dff_const3 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+        4 wire bits
+        4 public wires
+        4 public wire bits
+        3 ports
+        3 port bits
+        2 cells
+        1   $_DFF_PP0_
+        1   $_DFF_PP1_
+
+[1m[36m3.26. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module dff_const3...
+Found and reported 0 problems.
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m4. [0m[1m[37mExecuting DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+[0m  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+[1m[36m4.1. [0m[1m[37mExecuting DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+[0m<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\dff_const3':
+  mapped 1 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+  mapped 1 $_DFF_PN1_ cells to \sky130_fd_sc_hd__dfstp_1 cells.
+
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m5. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m5.1. [0m[1m[37mSummary of detected clock domains:
+[0m  4 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m5.2. [0m[1m[37mExtracting gate netlist of module `\dff_const3' to `<abc-temp-dir>/input.blif'..
+[0mABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+[1m[36m5.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 2 gates and 3 wires to a netlist network with 1 inputs and 2 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m5.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        2
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+Removing global temp directory.
+
+yosys> show
+
+[1m[36m6. [0m[1m[37mGenerating Graphviz representation of design.
+[0mWriting dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module dff_const3 to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> read_verilog counter_opt.v
+
+[1m[36m7. [0m[1m[37mExecuting Verilog-2005 frontend: counter_opt.v
+[0mParsing Verilog input from `counter_opt.v' to AST representation.
+Generating RTLIL representation for module `\counter_opt'.
+Successfully finished Verilog frontend.
+
+yosys> synth -top couner  ter_opt 
+
+[1m[36m8. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m8.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m
+[1m[36m8.1.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+
+[1m[36m8.1.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+Removing unused module `\dff_const3'.
+Removed 1 unused modules.
+
+[1m[36m8.2. [0m[1m[37mExecuting PROC pass (convert processes to netlists).
+[0m
+[1m[36m8.2.1. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m8.2.2. [0m[1m[37mExecuting PROC_RMDEAD pass (remove dead branches from decision trees).
+[0mMarked 1 switch rules as full_case in process $proc$counter_opt.v:5$87 in module counter_opt.
+Removed a total of 0 dead cases.
+
+[1m[36m8.2.3. [0m[1m[37mExecuting PROC_PRUNE pass (remove redundant assignments in processes).
+[0mRemoved 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+[1m[36m8.2.4. [0m[1m[37mExecuting PROC_INIT pass (extract init attributes).
+[0m
+[1m[36m8.2.5. [0m[1m[37mExecuting PROC_ARST pass (detect async resets in processes).
+[0mFound async reset \reset in `\counter_opt.$proc$counter_opt.v:5$87'.
+
+[1m[36m8.2.6. [0m[1m[37mExecuting PROC_ROM pass (convert switches to ROMs).
+[0mConverted 0 switches.
+
+[1m[36m8.2.7. [0m[1m[37mExecuting PROC_MUX pass (convert decision trees to multiplexers).
+[0mCreating decoders for process `\counter_opt.$proc$counter_opt.v:5$87'.
+     1/1: $0\count[2:0]
+
+[1m[36m8.2.8. [0m[1m[37mExecuting PROC_DLATCH pass (convert process syncs to latches).
+[0m
+[1m[36m8.2.9. [0m[1m[37mExecuting PROC_DFF pass (convert process syncs to FFs).
+[0mCreating register for signal `\counter_opt.\count' using process `\counter_opt.$proc$counter_opt.v:5$87'.
+  created $adff cell `$procdff$91' with positive edge clock and positive level reset.
+
+[1m[36m8.2.10. [0m[1m[37mExecuting PROC_MEMWR pass (convert process memory writes to cells).
+[0m
+[1m[36m8.2.11. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mRemoving empty process `counter_opt.$proc$counter_opt.v:5$87'.
+Cleaned up 0 empty switches.
+
+[1m[36m8.2.12. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+<suppressed ~1 debug messages>
+
+[1m[36m8.3. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.4. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module counter_opt...
+Found and reported 0 problems.
+
+[1m[36m8.5. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m8.6. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.6.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.6.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.6.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m8.6.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m8.6.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.6.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.6.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.6.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.6.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m8.7. [0m[1m[37mExecuting FSM pass (extract and optimize FSM).
+[0m
+[1m[36m8.7.1. [0m[1m[37mExecuting FSM_DETECT pass (finding FSMs in design).
+[0m
+[1m[36m8.7.2. [0m[1m[37mExecuting FSM_EXTRACT pass (extracting FSM from design).
+[0m
+[1m[36m8.7.3. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m8.7.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.7.5. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m8.7.6. [0m[1m[37mExecuting FSM_RECODE pass (re-assigning FSM state encoding).
+[0m
+[1m[36m8.7.7. [0m[1m[37mExecuting FSM_INFO pass (dumping all available information on FSM cells).
+[0m
+[1m[36m8.7.8. [0m[1m[37mExecuting FSM_MAP pass (mapping FSMs to basic logic).
+[0m
+[1m[36m8.8. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.8.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.8.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.8.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m8.8.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m8.8.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.8.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.8.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.8.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.8.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m8.9. [0m[1m[37mExecuting WREDUCE pass (reducing word size of cells).
+[0mRemoved top 31 bits (of 32) from port B of cell counter_opt.$add$counter_opt.v:10$88 ($add).
+Removed top 29 bits (of 32) from port Y of cell counter_opt.$add$counter_opt.v:10$88 ($add).
+
+[1m[36m8.10. [0m[1m[37mExecuting PEEPOPT pass (run peephole optimizers).
+[0m
+[1m[36m8.11. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m8.12. [0m[1m[37mExecuting ALUMACC pass (create $alu and $macc cells).
+[0mExtracting $alu and $macc cells in module counter_opt:
+  creating $macc model for $add$counter_opt.v:10$88 ($add).
+  creating $alu model for $macc $add$counter_opt.v:10$88.
+  creating $alu cell for $add$counter_opt.v:10$88: $auto$alumacc.cc:576:replace_alu$92
+  created 1 $alu and 0 $macc cells.
+
+[1m[36m8.13. [0m[1m[37mExecuting SHARE pass (SAT-based resource sharing).
+[0m
+[1m[36m8.14. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.14.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.14.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.14.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m8.14.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m8.14.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.14.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.14.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.14.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.14.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m8.15. [0m[1m[37mExecuting MEMORY pass.
+[0m
+[1m[36m8.15.1. [0m[1m[37mExecuting OPT_MEM pass (optimize memories).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m8.15.2. [0m[1m[37mExecuting OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m8.15.3. [0m[1m[37mExecuting OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[0m
+[1m[36m8.15.4. [0m[1m[37mExecuting MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[0m
+[1m[36m8.15.5. [0m[1m[37mExecuting MEMORY_DFF pass (merging $dff cells to $memrd).
+[0m
+[1m[36m8.15.6. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.15.7. [0m[1m[37mExecuting MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[0m
+[1m[36m8.15.8. [0m[1m[37mExecuting OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m8.15.9. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.15.10. [0m[1m[37mExecuting MEMORY_COLLECT pass (generating $mem cells).
+[0m
+[1m[36m8.16. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.17. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.17.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.17.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.17.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.17.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.17.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m8.18. [0m[1m[37mExecuting MEMORY_MAP pass (converting memories to logic and flip-flops).
+[0m
+[1m[36m8.19. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.19.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.19.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.19.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m8.19.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m8.19.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.19.6. [0m[1m[37mExecuting OPT_SHARE pass.
+[0m
+[1m[36m8.19.7. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.19.8. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m8.19.9. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.19.10. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m8.20. [0m[1m[37mExecuting TECHMAP pass (map to technology primitives).
+[0m
+[1m[36m8.20.1. [0m[1m[37mExecuting Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+[0mParsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+[1m[36m8.20.2. [0m[1m[37mContinuing TECHMAP pass.
+[0mUsing template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~212 debug messages>
+
+[1m[36m8.21. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.21.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+<suppressed ~24 debug messages>
+
+[1m[36m8.21.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 11 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Computing hashes of 10 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+[1m[36m8.21.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.21.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 8 unused cells and 45 unused wires.
+<suppressed ~9 debug messages>
+
+[1m[36m8.21.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m8.22. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m8.22.1. [0m[1m[37mSummary of detected clock domains:
+[0m  2 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+[1m[36m8.22.2. [0m[1m[37mExtracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+[0mFound matching posedge clock domain: \clk, asynchronously reset by \reset
+
+[1m[36m8.22.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 1 gates and 2 wires to a netlist network with 1 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m8.22.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:               NOT cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+[1m[36m8.23. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m8.23.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m8.23.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m8.23.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m8.23.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m8.23.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m8.24. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0mAttribute `top' found on module `counter_opt'. Setting top module to counter_opt.
+
+[1m[36m8.24.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+
+[1m[36m8.24.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+Removed 0 unused modules.
+
+[1m[36m8.25. [0m[1m[37mPrinting statistics.
+[0m
+=== counter_opt ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        5 wires
+        9 wire bits
+        4 public wires
+        6 public wire bits
+        3 ports
+        3 port bits
+        2 cells
+        1   $_DFF_PP0_
+        1   $_NOT_
+
+[1m[36m8.26. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module counter_opt...
+Found and reported 0 problems.
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m9. [0m[1m[37mExecuting DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+[0m  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+[1m[36m9.1. [0m[1m[37mExecuting DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+[0mMapping DFF/DLATCH cells in module `\counter_opt':
+  mapped 1 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m10. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m10.1. [0m[1m[37mSummary of detected clock domains:
+[0m  3 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m10.2. [0m[1m[37mExtracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+[0mABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+[1m[36m10.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 2 gates and 4 wires to a netlist network with 2 inputs and 2 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m10.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        2
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+Removing global temp directory.
+
+yosys> show
+
+[1m[36m11. [0m[1m[37mGenerating Graphviz representation of design.
+[0mWriting dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module counter_opt to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> synth -top counter_opt                                      yosys> synth -top counter_opt yosys> read_verilog counter_opt.vyosys> show                      yosys> showread_verilog counter_opt.vyosys> read_verilog counter_opt2.v
+
+[1m[36m12. [0m[1m[37mExecuting Verilog-2005 frontend: counter_opt2.v
+[0mParsing Verilog input from `counter_opt2.v' to AST representation.
+[96mcounter_opt2.v:1: [0m[91mERROR: [0m[1m[34mRe-definition of module `\counter_opt'!
+[0mvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> read_liv berty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m1. [0m[1m[37mExecuting Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[0mImported 418 cell types from liberty file.
+
+yosys> read_verilog counter_opt2.v 
+
+[1m[36m2. [0m[1m[37mExecuting Verilog-2005 frontend: counter_opt2.v
+[0mParsing Verilog input from `counter_opt2.v' to AST representation.
+Generating RTLIL representation for module `\counter_opt'.
+Successfully finished Verilog frontend.
+
+yosys> synth = -top vounter       counter_opt  2
+
+[1m[36m3. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m3.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m[91mERROR: [0m[1m[34mModule `counter_opt2' not found!
+[0m
+yosys> synth -top counter_opt2 
+
+[1m[36m4. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m4.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m
+[1m[36m4.1.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+
+[1m[36m4.1.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+Removed 0 unused modules.
+
+[1m[36m4.2. [0m[1m[37mExecuting PROC pass (convert processes to netlists).
+[0m
+[1m[36m4.2.1. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m4.2.2. [0m[1m[37mExecuting PROC_RMDEAD pass (remove dead branches from decision trees).
+[0mMarked 1 switch rules as full_case in process $proc$counter_opt2.v:5$2 in module counter_opt.
+Removed a total of 0 dead cases.
+
+[1m[36m4.2.3. [0m[1m[37mExecuting PROC_PRUNE pass (remove redundant assignments in processes).
+[0mRemoved 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+[1m[36m4.2.4. [0m[1m[37mExecuting PROC_INIT pass (extract init attributes).
+[0m
+[1m[36m4.2.5. [0m[1m[37mExecuting PROC_ARST pass (detect async resets in processes).
+[0mFound async reset \reset in `\counter_opt.$proc$counter_opt2.v:5$2'.
+
+[1m[36m4.2.6. [0m[1m[37mExecuting PROC_ROM pass (convert switches to ROMs).
+[0mConverted 0 switches.
+
+[1m[36m4.2.7. [0m[1m[37mExecuting PROC_MUX pass (convert decision trees to multiplexers).
+[0mCreating decoders for process `\counter_opt.$proc$counter_opt2.v:5$2'.
+     1/1: $0\count[2:0]
+
+[1m[36m4.2.8. [0m[1m[37mExecuting PROC_DLATCH pass (convert process syncs to latches).
+[0m
+[1m[36m4.2.9. [0m[1m[37mExecuting PROC_DFF pass (convert process syncs to FFs).
+[0mCreating register for signal `\counter_opt.\count' using process `\counter_opt.$proc$counter_opt2.v:5$2'.
+  created $adff cell `$procdff$6' with positive edge clock and positive level reset.
+
+[1m[36m4.2.10. [0m[1m[37mExecuting PROC_MEMWR pass (convert process memory writes to cells).
+[0m
+[1m[36m4.2.11. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mRemoving empty process `counter_opt.$proc$counter_opt2.v:5$2'.
+Cleaned up 0 empty switches.
+
+[1m[36m4.2.12. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+<suppressed ~1 debug messages>
+
+[1m[36m4.3. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.4. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module counter_opt...
+Found and reported 0 problems.
+
+[1m[36m4.5. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m4.6. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.6.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.6.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.6.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m4.6.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m4.6.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.6.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.6.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.6.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.6.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m4.7. [0m[1m[37mExecuting FSM pass (extract and optimize FSM).
+[0m
+[1m[36m4.7.1. [0m[1m[37mExecuting FSM_DETECT pass (finding FSMs in design).
+[0m
+[1m[36m4.7.2. [0m[1m[37mExecuting FSM_EXTRACT pass (extracting FSM from design).
+[0m
+[1m[36m4.7.3. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m4.7.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.7.5. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m4.7.6. [0m[1m[37mExecuting FSM_RECODE pass (re-assigning FSM state encoding).
+[0m
+[1m[36m4.7.7. [0m[1m[37mExecuting FSM_INFO pass (dumping all available information on FSM cells).
+[0m
+[1m[36m4.7.8. [0m[1m[37mExecuting FSM_MAP pass (mapping FSMs to basic logic).
+[0m
+[1m[36m4.8. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.8.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.8.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.8.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m4.8.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m4.8.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.8.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.8.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.8.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.8.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m4.9. [0m[1m[37mExecuting WREDUCE pass (reducing word size of cells).
+[0mRemoved top 31 bits (of 32) from port B of cell counter_opt.$add$counter_opt2.v:10$3 ($add).
+Removed top 29 bits (of 32) from port Y of cell counter_opt.$add$counter_opt2.v:10$3 ($add).
+
+[1m[36m4.10. [0m[1m[37mExecuting PEEPOPT pass (run peephole optimizers).
+[0m
+[1m[36m4.11. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m4.12. [0m[1m[37mExecuting ALUMACC pass (create $alu and $macc cells).
+[0mExtracting $alu and $macc cells in module counter_opt:
+  creating $macc model for $add$counter_opt2.v:10$3 ($add).
+  creating $alu model for $macc $add$counter_opt2.v:10$3.
+  creating $alu cell for $add$counter_opt2.v:10$3: $auto$alumacc.cc:576:replace_alu$7
+  created 1 $alu and 0 $macc cells.
+
+[1m[36m4.13. [0m[1m[37mExecuting SHARE pass (SAT-based resource sharing).
+[0m
+[1m[36m4.14. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.14.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.14.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.14.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m4.14.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m4.14.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.14.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.14.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.14.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.14.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m4.15. [0m[1m[37mExecuting MEMORY pass.
+[0m
+[1m[36m4.15.1. [0m[1m[37mExecuting OPT_MEM pass (optimize memories).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m4.15.2. [0m[1m[37mExecuting OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m4.15.3. [0m[1m[37mExecuting OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[0m
+[1m[36m4.15.4. [0m[1m[37mExecuting MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[0m
+[1m[36m4.15.5. [0m[1m[37mExecuting MEMORY_DFF pass (merging $dff cells to $memrd).
+[0m
+[1m[36m4.15.6. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.15.7. [0m[1m[37mExecuting MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[0m
+[1m[36m4.15.8. [0m[1m[37mExecuting OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m4.15.9. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.15.10. [0m[1m[37mExecuting MEMORY_COLLECT pass (generating $mem cells).
+[0m
+[1m[36m4.16. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.17. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.17.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.17.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.17.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.17.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.17.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m4.18. [0m[1m[37mExecuting MEMORY_MAP pass (converting memories to logic and flip-flops).
+[0m
+[1m[36m4.19. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.19.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.19.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.19.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+[1m[36m4.19.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+[1m[36m4.19.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.19.6. [0m[1m[37mExecuting OPT_SHARE pass.
+[0m
+[1m[36m4.19.7. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.19.8. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+
+[1m[36m4.19.9. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.19.10. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m4.20. [0m[1m[37mExecuting TECHMAP pass (map to technology primitives).
+[0m
+[1m[36m4.20.1. [0m[1m[37mExecuting Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+[0mParsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+[1m[36m4.20.2. [0m[1m[37mContinuing TECHMAP pass.
+[0mUsing template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~213 debug messages>
+
+[1m[36m4.21. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.21.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+<suppressed ~27 debug messages>
+
+[1m[36m4.21.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 15 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Computing hashes of 13 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+[1m[36m4.21.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.21.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 2 unused cells and 45 unused wires.
+<suppressed ~3 debug messages>
+
+[1m[36m4.21.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m4.22. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m4.22.1. [0m[1m[37mSummary of detected clock domains:
+[0m  11 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+[1m[36m4.22.2. [0m[1m[37mExtracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+[0mFound matching posedge clock domain: \clk, asynchronously reset by \reset
+
+[1m[36m4.22.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 8 gates and 11 wires to a netlist network with 3 inputs and 4 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m4.22.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:        1
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:        internal signals:        4
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        4
+Removing temp directory.
+Removing global temp directory.
+
+[1m[36m4.23. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m4.23.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module counter_opt.
+
+[1m[36m4.23.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\counter_opt'.
+Computing hashes of 9 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+[1m[36m4.23.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m4.23.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m4.23.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m4.24. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0mAttribute `top' found on module `counter_opt'. Setting top module to counter_opt.
+
+[1m[36m4.24.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+
+[1m[36m4.24.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \counter_opt
+Removed 0 unused modules.
+
+[1m[36m4.25. [0m[1m[37mPrinting statistics.
+[0m
+=== counter_opt ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        8 wires
+       14 wire bits
+        4 public wires
+        6 public wire bits
+        3 ports
+        3 port bits
+        9 cells
+        1   $_ANDNOT_
+        1   $_AND_
+        3   $_DFF_PP0_
+        1   $_NAND_
+        1   $_NOR_
+        1   $_NOT_
+        1   $_XNOR_
+
+[1m[36m4.26. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module counter_opt...
+Found and reported 0 problems.
+
+yosys> synth -top counter_opt                      dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m5. [0m[1m[37mExecuting DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+[0m  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+[1m[36m5.1. [0m[1m[37mExecuting DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+[0m<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\counter_opt':
+  mapped 3 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> synth -top counter_opt                                      yosys> synth -top counter_opt2yosys> read_verilog counter_opt2.v yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> read_verilog counter_opt2.v                                yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> read_verilog counter_opt2.v                                yosys> show                       yosys> showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m6. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m6.1. [0m[1m[37mSummary of detected clock domains:
+[0m  12 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m6.2. [0m[1m[37mExtracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+[0mABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+[1m[36m6.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 9 gates and 13 wires to a netlist network with 4 inputs and 7 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m6.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:        1
+ABC RESULTS:        internal signals:        2
+ABC RESULTS:           input signals:        4
+ABC RESULTS:          output signals:        7
+Removing temp directory.
+Removing global temp directory.
+
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib       yosys>                                                       yosys> show
+
+[1m[36m7. [0m[1m[37mGenerating Graphviz representation of design.
+[0mWriting dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module counter_opt to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys>                                                                                                                                                                                                                   yosys> exit
+
+End of script. Logfile hash: cb7e87484c, time: 403.20s, user: 0.17s, system: 0.29s, MEM: 29.62 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 2084% 2x abc (0 sec), 1144% 2x synth (0 sec), ...
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ exit
+exit
+
+Script done on 2026-10-03 17:32:34+05:30 [COMMAND_EXIT_CODE="0"]

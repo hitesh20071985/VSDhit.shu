@@ -1,0 +1,5 @@
+Script started on 2026-10-03 17:02:18+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="204" LINES="55"]
+vboxuser@Hitesh:~$ exit
+exit
+
+Script done on 2026-10-03 17:02:25+05:30 [COMMAND_EXIT_CODE="0"]

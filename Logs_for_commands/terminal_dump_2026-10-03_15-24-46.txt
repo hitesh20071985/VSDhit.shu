@@ -1,0 +1,2890 @@
+Script started on 2026-10-03 15:24:46+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="204" LINES="55"]
+vboxuser@Hitesh:~$ c ls
+cudd  Desktop  Documents  Downloads  latest_dump_commands.txt  magic  Music  ngspice  OpenLane  OpenSTA  Pictures  Public  skywater-pdk-libs-sky130_fd_sc_hd  snap  Templates  terminal_dumps  Videos  VLSI
+vboxuser@Hitesh:~$ cd VLSI/
+vboxuser@Hitesh:~/VLSI$ ls
+sky130RTLDesignAndSynthesisWorkshop  SystemDesignWorkshopCollaterals  vsdflow  yosys
+vboxuser@Hitesh:~/VLSI$ cd Sksky130RTLDesignAndSynthesisWorkshop/
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop$ ls
+DC_WORKSHOP  lib  my_lib  README.md  verilog_files  yosys_run.sh
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop$ cd verilog_files/
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ls
+a.out                  demux_generate.v        good_mux.v                   mux_generate.v                  tb_bad_shift_reg2.v        tb_dff_syncres.v          tb_rca.v
+bad_case_net.v         dff_ares.net.v          good_shift_reg.v             mux_spice.v                     tb_bad_shift_reg.v         tb_dff_syncres.vcd        tb_ripple_counter.v
+bad_case.v             dff_asyncres_net.v      incomp_case.v                net.v                           tb_blocking_caveat.v       tb_good_counter.v         tb_ternary_operator_mux.v
+bad_counter.v          dff_asyncres_syncres.v  incomp_if2.v                 opt_check2.v                    tb_comp_case.v             tb_good_latch.v           tb_upcntr.v
+bad_latch_2.v          dff_asyncres.v          incomp_if.v                  opt_check3.v                    tb_counter_opt.v           tb_good_mux.v             tb_up_dn_cntr.v
+bad_latch_net.v        dff_async_set.v         mul2_net.v                   opt_check4.v                    tb_demux_case.v            tb_good_mux.vcd           tb_up_dn_cntr_with_load.v
+bad_latch.v            dff_const1.v            mult_2.v                     opt_check.v                     tb_demux_generate.v        tb_good_shift_reg.v       tb_up_dn_cntr_with_load_with_start_stop.v
+bad_mux_net.v          dff_const2.v            mult_8.v                     partial_case_assign.v           tb_dff_asyncres_syncres.v  tb_incomp_case.v          ternary_operator_mux_net.v
+bad_mux.v              dff_const3.v            multiple_module_flatttten.v  pattern_detect_fsm_bad_style.v  tb_dff_asyncres.v          tb_incomp_if2.v           ternary_operator_mux.v
+bad_shift_reg2.v       dff_const4.v            multiple_module_hier.v       pattern_detect_fsm.v            tb_dff_asyncres.vcd        tb_incomp_if.v            upcntr.v
+bad_shift_reg.v        dff_const5.v            multiple_module_opt2.v       rca.v                           tb_dff_async_set.v         tb_multiple_modules.v     up_dn_cntr.v
+blocking_caveat_net.v  dff_net.v               multiple_module_opt.v        ripple_counter.v                tb_dff_async_set.vcd       tb_mux_generate.v         up_dn_cntr_with_load.v
+blocking_caveat.v      dff_syncres.v           multiple_modules_falt.v      tb_bad_case.v                   tb_dff_const1.v            tb_opt_check2.v           up_dn_cntr_with_load_with_start_stop.v
+comp_case.v            fa.v                    multiple_modules_flat.v      tb_bad_counter.v                tb_dff_const2.v            tb_opt_check3.v
+counter_opt2.v         good_counter.v          multiple_modules_hier,v      tb_bad_latch2.v                 tb_dff_const3.v            tb_opt_check.v
+counter_opt.v          good_latch.v            multiple_modules_hier.v      tb_bad_latch.v                  tb_dff_const4.v            tb_partial_case_assign.v
+demux_case.v           good_mux_netlist.v      multiple_modules.v           tb_bad_mux.v                    tb_dff_const5.v            tb_pattern_detect_fsm.v
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$  ls *opt*
+counter_opt2.v  counter_opt.v  multiple_module_opt2.v  multiple_module_opt.v  opt_check2.v  opt_check3.v  opt_check4.v  opt_check.v  tb_counter_opt.v  tb_opt_check2.v  tb_opt_check3.v  tb_opt_check.v
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> exitshowabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib synth -top opt_check4read_verilog opt_check4.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib synth -top opt_check3read_verilog opt_check3.vshowread_verilog opt_check3.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib opt_clean -purge synth -top opt_check2read_verilog opt_check2.vshowabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib opt_clean -purgepurgesynth -top opt_check read_verilog opt_check.vsynth -top opt_checkopt_clean purgesynth -top opt_check opt_clean purge-purgeabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib showread_verilog opt_check2.v synth -top opt_check2opt_clean -purgeabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libshowread_verilog opt_check3.v synth -top opt_check3abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libshowread_verilog opt_check4.v synth -top opt_check4abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib showexityosys -Q -p "help" > ~/yosys_commands.txtyosys -Q -p "help" > ~/yosys_commands.txt
+ERROR: No such command: yosys (type 'help' for a command overview)
+
+yosys> help
+
+    abc                  use ABC for technology mapping
+    abc9                 use ABC9 for technology mapping
+    abc9_exe             use ABC9 for technology mapping
+    abc9_ops             helper functions for ABC9
+    abc_new              (experimental) use ABC for SC technology mapping (new)
+    abc_ops_reintegrate  reintegrate ABC mapped design into module
+    abstract             replace signals with abstract values during formal verification
+    add                  add objects to the design
+    aigmap               map logic to and-inverter-graph circuit
+    alumacc              extract ALU and MACC cells
+    anlogic_eqn          Anlogic: Calculate equations for luts
+    anlogic_fixcarry     Anlogic: fix carry chain
+    arith_tree           convert add/sub/macc/alu chains to carry-save adder trees
+    assertpmux           adds asserts for parallel muxes
+    async2sync           convert async FF inputs to sync circuits
+    attrmap              renaming attributes
+    attrmvcp             move or copy attributes from wires to driving cells
+    autoname             automatically assign names to objects
+    blackbox             convert modules into blackbox modules
+    bmuxmap              transform $bmux cells to trees of $mux cells
+    booth                map $mul cells to Booth multipliers
+    box_derive           derive box modules
+    bufnorm              (experimental) convert design into buffered-normalized form
+    bugpoint             minimize testcases
+    bwmuxmap             replace $bwmux cells with equivalent logic
+    cd                   a shortcut for 'select -module <name>'
+    cellmatch            match cells to their targets in cell library
+    check                check for obvious problems in the design
+    check_mem            check for obvious memory problems in the design
+    chformal             change formal constraints of the design
+    chparam              re-evaluate modules with new parameters
+    chtype               change type of cells in the design
+    clean                remove unused cells and wires
+    clean_zerowidth      clean zero-width connections from the design
+    clk2fflogic          convert clocked FFs to generic $ff cells
+    clkbufmap            insert clock buffers on clock networks
+    clockgate            extract clock gating out of flip flops
+    connect              create or remove connections
+    connect_rpc          connect to RPC frontend
+    connwrappers         match width of input-output port pairs
+    constmap             technology mapping of coarse constant value
+    copy                 copy modules in the design
+    cutpoint             adds formal cut points to the design
+    debug                run command with debug log messages enabled
+    delete               delete objects in the design
+    deminout             demote inout ports to input or output
+    demuxmap             transform $demux cells to $eq + $mux cells
+    design               save, restore and reset current design
+    design_equal         check if two designs are the same
+    dffinit              set INIT param on FF cells
+    dfflegalize          convert FFs and LATCHes to types supported by the target
+    dfflibmap            technology mapping of flip-flops and latches
+    dffunmap             unmap clock enable and synchronous reset from FFs
+    dft_tag              create tagging logic for data flow tracking
+    dump                 print parts of the design in RTLIL format
+    echo                 turning echoing back of commands on and off
+    edgetypes            list all types of edges in selection
+    efinix_fixcarry      Efinix: fix carry chain
+    equiv_add            add a $equiv cell
+    equiv_induct         proving $equiv cells using temporal induction
+    equiv_make           prepare a circuit for equivalence checking
+    equiv_mark           mark equivalence checking regions
+    equiv_miter          extract miter from equiv circuit
+    equiv_opt            prove equivalence for optimized circuit
+    equiv_purge          purge equivalence checking module
+    equiv_remove         remove $equiv cells
+    equiv_simple         try proving simple $equiv instances
+    equiv_status         print status of equivalent checking module
+    equiv_struct         structural equivalence checking
+    eval                 evaluate the circuit given an input
+    example_dt           drivertools example
+    exec                 execute commands in the operating system shell
+    expose               convert internal signals to module ports
+    extract              find subcircuits and replace them with cells
+    extract_counter      Extract GreenPak4 counter cells
+    extract_fa           find and extract full/half adders
+    extract_reduce       converts gate chains into $reduce_* cells
+    extractinv           extract explicit inverter cells for invertible cell pins
+    flatten              flatten design
+    fmcombine            combine two instances of a cell into one
+    fminit               set init values/sequences for formal
+    formalff             prepare FFs for formal
+    freduce              perform functional reduction
+    fsm                  extract and optimize finite state machines
+    fsm_detect           finding FSMs in design
+    fsm_expand           expand FSM cells by merging logic into it
+    fsm_export           exporting FSMs to KISS2 files
+    fsm_extract          extracting FSMs in design
+    fsm_info             print information on finite state machines
+    fsm_map              mapping FSMs to basic logic
+    fsm_opt              optimize finite state machines
+    fsm_recode           recoding finite state machines
+    fst2tb               generate testbench out of fst file
+    future               resolve future sampled value functions
+    gatemate_foldinv     fold inverters into Gatemate LUT trees
+    glift                create GLIFT models and optimization problems
+    help                 display help messages
+    hierarchy            check, expand and clean up design hierarchy
+    hilomap              technology mapping of constant hi- and/or lo-drivers
+    history              show last interactive commands
+    ice40_braminit       iCE40: perform SB_RAM40_4K initialization from file
+    ice40_dsp            iCE40: map multipliers
+    ice40_opt            iCE40: perform simple optimizations
+    ice40_wrapcarry      iCE40: wrap carries
+    icell_liberty        write Liberty interfaces for used internal cells
+    insbuf               insert buffer cells for connected wires
+    internal_stats       print internal statistics
+    iopadmap             technology mapping of i/o pads (or buffers)
+    jny                  write design and metadata
+    json                 write design in JSON format
+    keep_hierarchy       selectively add the keep_hierarchy attribute
+    lattice_dsp_nexus    Lattice Nexus DSP inference
+    lattice_gsr          Lattice: handle GSR
+    libcache             control caching of technology library data parsed from liberty files
+    license              print license terms
+    linecoverage         report coverage information
+    linux_perf           turn linux perf recording off or on
+    log                  print text and log files
+    logger               set logger properties
+    ls                   list modules or objects in modules
+    ltp                  print longest topological path
+    lut2bmux             convert $lut to $bmux
+    lut2mux              convert $lut to $mux/$_MUX_
+    maccmap              mapping macc cells
+    memory               translate memories to basic cells
+    memory_bmux2rom      convert muxes to ROMs
+    memory_bram          map memories to block rams
+    memory_collect       creating multi-port memory cells
+    memory_dff           merge input/output DFFs into memory read ports
+    memory_libmap        map memories to cells
+    memory_map           translate multiport memories to basic cells
+    memory_memx          emulate vlog sim behavior for mem ports
+    memory_narrow        split up wide memory ports
+    memory_nordff        extract read port FFs from memories
+    memory_share         consolidate memory ports
+    memory_unpack        unpack multi-port memory cells
+    microchip_dffopt     MICROCHIP: optimize FF control signal usage
+    microchip_dsp        MICROCHIP: pack resources into DSPs
+    miter                automatically create a miter circuit
+    mutate               generate or apply design mutations
+    muxcover             cover trees of MUX cells with wider MUXes
+    muxpack              $mux/$pmux cascades to $pmux
+    nx_carry             NanoXplore: create carry cells
+    onehot               optimize $eq cells for onehot signals
+    opensta              run OpenSTA
+    opt                  perform simple optimizations
+    opt_balance_tree     $and/$or/$xor/$add/$mul cascades to trees
+    opt_clean            remove unused cells and wires
+    opt_demorgan         Optimize reductions with DeMorgan equivalents
+    opt_dff              perform DFF optimizations
+    opt_expr             perform const folding and simple expression rewriting
+    opt_ffinv            push inverters through FFs
+    opt_hier             perform cross-boundary optimization
+    opt_lut              optimize LUT cells
+    opt_lut_ins          discard unused LUT inputs
+    opt_mem              optimize memories
+    opt_mem_feedback     convert memory read-to-write port feedback paths to write enables
+    opt_mem_priority     remove priority relations between write ports that can never collide
+    opt_mem_widen        optimize memories where all ports are wide
+    opt_merge            consolidate identical cells
+    opt_muxtree          eliminate dead trees in multiplexer trees
+    opt_reduce           simplify large MUXes and AND/OR gates
+    opt_share            merge mutually exclusive cells of the same type that share an input signal
+    paramap              renaming cell parameters
+    peepopt              collection of peephole optimizers
+    plugin               load and list loaded plugins
+    pmux2shiftx          transform $pmux cells to $shiftx cells
+    pmuxtree             transform $pmux cells to trees of $mux cells
+    portarcs             derive port arcs for propagation delay
+    portlist             list (top-level) ports
+    prep                 generic synthesis script
+    printattrs           print attributes of selected objects
+    proc                 translate processes to netlists
+    proc_arst            detect asynchronous resets
+    proc_clean           remove empty parts of processes
+    proc_dff             extract flip-flops from processes
+    proc_dlatch          extract latches from processes
+    proc_init            convert initial block to init attributes
+    proc_memwr           extract memory writes from processes
+    proc_mux             convert decision trees to multiplexers
+    proc_prune           remove redundant assignments
+    proc_rmdead          eliminate dead trees in decision trees
+    proc_rom             convert switches to ROMs
+    qbfsat               solve a 2QBF-SAT problem in the circuit
+    ql_bram_merge        Infers QuickLogic k6n10f BRAM pairs that can operate independently
+    ql_bram_types        Change TDP36K type to subtypes
+    ql_dsp_io_regs       change types of QL_DSP2 depending on configuration
+    ql_dsp_macc          infer QuickLogic multiplier-accumulator DSP cells
+    ql_dsp_simd          merge QuickLogic K6N10f DSP pairs to operate in SIMD mode
+    ql_ioff              Infer I/O FFs for qlf_k6n10f architecture
+    raise_error          raise errors from attributes
+    read                 load HDL designs
+    read_aiger           read AIGER file
+    read_blif            read BLIF file
+    read_json            read JSON file
+    read_liberty         read cells from liberty file
+    read_rtlil           read modules from RTLIL file
+    read_slang           read SystemVerilog (slang)
+    read_verilog         read modules from Verilog file
+    read_verilog_file_list parse a Verilog file list
+    recover_names        Execute a lossy mapping command and recover original netnames
+    rename               rename object in the design
+    rmports              remove module ports with no connections
+    sat                  solve a SAT problem in the circuit
+    scatter              add additional intermediate nets
+    scc                  detect strongly connected components (logic loops)
+    scratchpad           get/set values in the scratchpad
+    script               execute commands from file or wire
+    sdc                  Read an SDC file
+    sdc_expand           expand SDC design with opensta
+    select               modify and view the list of selected objects
+    setattr              set/unset attributes on objects
+    setenv               set an environment variable
+    setparam             set/unset parameters on objects
+    setundef             replace undef values with defined constants
+    share                perform sat-based resource sharing
+    shell                enter interactive command mode
+    show                 generate schematics using graphviz
+    shregmap             map shift registers
+    sim                  simulate the circuit
+    simplemap            mapping simple coarse-grain cells
+    slang_defaults       set default options for read_slang
+    slang_version        display revision of slang frontend
+    sort                 sort the design objects
+    splice               create explicit splicing cells
+    splitcells           split up multi-bit cells
+    splitnets            split up multi-bit nets
+    sta                  perform static timing analysis
+    stat                 print some statistics
+    submod               moving part of a module to a new submodule
+    supercover           add hi/lo cover cells for each wire bit
+    symfpu               SymFPU based floating point netlist generator
+    symfpu_convert       SymFPU based floating point conversion netlist generator
+    synth                generic synthesis script
+    synth_achronix       synthesis for Achronix Speedster22i FPGAs.
+    synth_analogdevices  synthesis for Analog Devices FPGAs
+    synth_anlogic        synthesis for Anlogic FPGAs
+    synth_easic          synthesis for eASIC platform
+    synth_ecp5           synthesis for ECP5 FPGAs
+    synth_efinix         synthesis for Efinix FPGAs
+    synth_fabulous       FABulous synthesis script
+    synth_gatemate       synthesis for Cologne Chip GateMate FPGAs
+    synth_gowin          synthesis for Gowin FPGAs
+    synth_ice40          synthesis for iCE40 FPGAs
+    synth_intel          synthesis for Intel (Altera) FPGAs.
+    synth_intel_alm      synthesis for ALM-based Intel (Altera) FPGAs.
+    synth_lattice        synthesis for Lattice FPGAs
+    synth_microchip      synthesis for Microchip FPGAs
+    synth_nanoxplore     synthesis for NanoXplore FPGAs
+    synth_nexus          synthesis for Nexus FPGAs
+    synth_quicklogic     Synthesis for QuickLogic FPGAs
+    synth_sf2            synthesis for SmartFusion2 and IGLOO2 FPGAs
+    synth_xilinx         synthesis for Xilinx FPGAs
+    synthprop            synthesize SVA properties
+    tcl                  execute a TCL script file
+    techmap              generic technology mapper
+    tee                  redirect command output to file
+    test_abcloop         automatically test handling of loops in abc command
+    test_autotb          generate simple test benches
+    test_cell            automatically test the implementation of a cell type
+    test_generic         test the generic compute graph
+    test_kogge_stone     build adders for Kogge-Stone equivalence testing
+    test_pmgen           test pass for pmgen
+    test_select          call internal selection methods on design for testing purposes
+    test_slangdiag       test diagnostics emission by the slang frontend
+    test_slangexpr       test expression evaluation within slang frontend
+    timeest              estimate timing
+    torder               print cells in topological order
+    trace                redirect command output to file
+    tribuf               infer tri-state buffers
+    uniquify             create unique copies of modules
+    verific              load Verilog and VHDL designs using Verific
+    verilog_defaults     set default options for read_verilog
+    verilog_defines      define and undefine verilog defines
+    viz                  visualize data flow graph
+    wbflip               flip the whitebox attribute
+    wrapcell             wrap individual cells into new modules
+    wreduce              reduce the word size of operations if possible
+    write_aiger          write design to AIGER file
+    write_aiger2         (experimental) write design to AIGER file
+    write_blif           write design to BLIF file
+    write_btor           write design to BTOR file
+    write_cxxrtl         convert design to C++ RTL simulation
+    write_edif           write design to EDIF netlist file
+    write_file           write a text to a file
+    write_firrtl         write design to a FIRRTL file
+    write_functional_cxx convert design to C++ using the functional backend
+    write_functional_rosette Generate Rosette compatible Racket from Functional IR
+    write_functional_smt2 Generate SMT-LIB from Functional IR
+    write_intersynth     write design to InterSynth netlist file
+    write_jny            generate design metadata
+    write_json           write design to a JSON file
+    write_rtlil          write design to RTLIL file
+    write_simplec        convert design to simple C code
+    write_smt2           write design to SMT-LIBv2 file
+    write_smv            write design to SMV file
+    write_spice          write design to SPICE netlist file
+    write_table          write design as connectivity table
+    write_verilog        write design to Verilog file
+    write_xaiger         write design to XAIGER file
+    write_xaiger2        (experimental) write module to XAIGER file
+    xilinx_dffopt        Xilinx: optimize FF control signal usage
+    xilinx_dsp           Xilinx: pack resources into DSPs
+    xilinx_srl           Xilinx shift register extraction
+    xprop                formal x propagation
+    zinit                add inverters so all FF are zero-initialized
+
+Type 'help <command>' for more information on a command.
+Type 'help -cells' for a list of all cell types.
+
+
+yosys> read_liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.lib read_liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ERROR: File `.../lib/sky130_fd_sc_hd__tt_025C_1v80.lib' not found or is a directory
+
+yosys> read_liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+1. Executing Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 418 cell types from liberty file.
+
+yosys> ^[[200~read_verilog~read_verilogread_verilog counter_opt.v  counter_opt.v  v
+
+2. Executing Verilog-2005 frontend: counter_opt.v
+Parsing Verilog input from `counter_opt.v' to AST representation.
+Generating RTLIL representation for module `\counter_opt'.
+Successfully finished Verilog frontend.
+
+yosys> syntuth -top counter_opt 
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \counter_opt
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \counter_opt
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$counter_opt.v:5$1 in module counter_opt.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\counter_opt.$proc$counter_opt.v:5$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\counter_opt.$proc$counter_opt.v:5$1'.
+     1/1: $0\count[2:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\counter_opt.\count' using process `\counter_opt.$proc$counter_opt.v:5$1'.
+  created $adff cell `$procdff$5' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `counter_opt.$proc$counter_opt.v:5$1'.
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+<suppressed ~1 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.4. Executing CHECK pass (checking for obvious problems).
+Checking module counter_opt...
+Found and reported 0 problems.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell counter_opt.$add$counter_opt.v:10$2 ($add).
+Removed top 29 bits (of 32) from port Y of cell counter_opt.$add$counter_opt.v:10$2 ($add).
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module counter_opt:
+  creating $macc model for $add$counter_opt.v:10$2 ($add).
+  creating $alu model for $macc $add$counter_opt.v:10$2.
+  creating $alu cell for $add$counter_opt.v:10$2: $auto$alumacc.cc:576:replace_alu$6
+  created 1 $alu and 0 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.17.5. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~212 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+<suppressed ~24 debug messages>
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 11 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Computing hashes of 10 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 8 unused cells and 45 unused wires.
+<suppressed ~9 debug messages>
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Summary of detected clock domains:
+  2 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+3.22.2. Extracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, asynchronously reset by \reset
+
+3.22.2.1. Executed ABC.
+Extracted 1 gates and 2 wires to a netlist network with 1 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+3.22.2.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 2 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `counter_opt'. Setting top module to counter_opt.
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \counter_opt
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \counter_opt
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== counter_opt ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        5 wires
+        9 wire bits
+        4 public wires
+        6 public wire bits
+        3 ports
+        3 port bits
+        2 cells
+        1   $_DFF_PP0_
+        1   $_NOT_
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module counter_opt...
+Found and reported 0 problems.
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+4. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+4.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\counter_opt':
+  mapped 1 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+5. Executing ABC pass (technology mapping using ABC).
+
+5.1. Summary of detected clock domains:
+  3 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+5.2. Extracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+5.2.1. Executed ABC.
+Extracted 2 gates and 4 wires to a netlist network with 2 inputs and 2 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+5.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        2
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+Removing global temp directory.
+
+yosys> show
+
+6. Generating Graphviz representation of design.
+Writing dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module counter_opt to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt read_verilog counter_opt.vliberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib verilog counter_opt.vsynth -top counter_opt dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libabcshowread_cerilogverilog multiple_module_opt.v multiple_module_opt.v 
+
+7. Executing Verilog-2005 frontend: multiple_module_opt.v
+Parsing Verilog input from `multiple_module_opt.v' to AST representation.
+Generating RTLIL representation for module `\sub_module1'.
+Generating RTLIL representation for module `\sub_module2'.
+Generating RTLIL representation for module `\multiple_module_opt'.
+Successfully finished Verilog frontend.
+
+yosys> synth -top read_verilog
+
+Syntax error in command `read_verilog':
+
+    read_verilog [options] [filename]
+
+Load modules from a Verilog file to the current design. A large subset of
+Verilog-2005 is supported.
+
+    -sv
+        enable support for SystemVerilog features. (only a small subset
+        of SystemVerilog is supported)
+
+    -formal
+        enable support for SystemVerilog assertions and some Yosys extensions
+        replace the implicit -D SYNTHESIS with -D FORMAL
+
+    -nosynthesis
+        don't add implicit -D SYNTHESIS
+
+    -noassert
+        ignore assert() statements
+
+    -noassume
+        ignore assume() statements
+
+    -norestrict
+        ignore restrict() statements
+
+    -assume-asserts
+        treat all assert() statements like assume() statements
+
+    -assert-assumes
+        treat all assume() statements like assert() statements
+
+    -nodisplay
+        suppress output from display system tasks ($display et. al).
+        This does not affect the output from a later 'sim' command.
+
+    -debug
+        alias for -dump_ast1 -dump_ast2 -dump_vlog1 -dump_vlog2 -yydebug
+
+    -dump_ast1
+        dump abstract syntax tree (before simplification)
+
+    -dump_ast2
+        dump abstract syntax tree (after simplification)
+
+    -no_dump_ptr
+        do not include hex memory addresses in dump (easier to diff dumps)
+
+    -dump_vlog1
+        dump ast as Verilog code (before simplification)
+
+    -dump_vlog2
+        dump ast as Verilog code (after simplification)
+
+    -dump_rtlil
+        dump generated RTLIL netlist
+
+    -yydebug
+        enable parser debug output
+
+    -nolatches
+        usually latches are synthesized into logic loops
+        this option prohibits this and sets the output to 'x'
+        in what would be the latches hold condition
+
+        this behavior can also be achieved by setting the
+        'nolatches' attribute on the respective module or
+        always block.
+
+    -nomem2reg
+        under certain conditions memories are converted to registers
+        early during simplification to ensure correct handling of
+        complex corner cases. this option disables this behavior.
+
+        this can also be achieved by setting the 'nomem2reg'
+        attribute on the respective module or register.
+
+        This is potentially dangerous. Usually the front-end has good
+        reasons for converting an array to a list of registers.
+        Prohibiting this step will likely result in incorrect synthesis
+        results.
+
+    -mem2reg
+        always convert memories to registers. this can also be
+        achieved by setting the 'mem2reg' attribute on the respective
+        module or register.
+
+    -nomeminit
+        do not infer $meminit cells and instead convert initialized
+        memories to registers directly in the front-end.
+
+    -ppdump
+        dump Verilog code after pre-processor
+
+    -nopp
+        do not run the pre-processor
+
+    -nodpi
+        disable DPI-C support
+
+    -noblackbox
+        do not automatically add a (* blackbox *) attribute to an
+        empty module.
+
+    -lib
+        only create empty blackbox modules. This implies -DBLACKBOX.
+        modules with the (* whitebox *) attribute will be preserved.
+        (* lib_whitebox *) will be treated like (* whitebox *).
+
+    -nowb
+        delete (* whitebox *) and (* lib_whitebox *) attributes from
+        all modules.
+
+    -specify
+        parse and import specify blocks
+
+    -noopt
+        don't perform basic optimizations (such as const folding) in the
+        high-level front-end.
+
+    -icells
+        interpret cell types starting with '$' as internal cell types
+
+    -pwires
+        add a wire for each module parameter
+
+    -nooverwrite
+        ignore re-definitions of modules. (the default behavior is to
+        create an error message if the existing module is not a black box
+        module, and overwrite the existing module otherwise.)
+
+    -overwrite
+        overwrite existing modules with the same name
+
+    -defer
+        only read the abstract syntax tree and defer actual compilation
+        to a later 'hierarchy' command. Useful in cases where the default
+        parameters of modules yield invalid or not synthesizable code.
+
+    -noautowire
+        make the default of `default_nettype be "none" instead of "wire".
+
+    -setattr <attribute_name>
+        set the specified attribute (to the value 1) on all loaded modules
+
+    -Dname[=definition]
+        define the preprocessor symbol 'name' and set its optional value
+        'definition'
+
+    -Idir
+        add 'dir' to the directories which are used when searching include
+        files
+
+    -relativeshare
+        use paths relative to share directory for source locations
+        where possible (experimental).
+
+The command 'verilog_defaults' can be used to register default options for
+subsequent calls to 'read_verilog'.
+
+Note that the Verilog frontend does a pretty good job of processing valid
+verilog input, but has not very good error reporting. It generally is
+recommended to use a simulator (for example Icarus Verilog) for checking
+the syntax of the code, rather than to rely on read_verilog for that.
+
+Depending on if read_verilog is run in -formal mode, either the macro
+SYNTHESIS or FORMAL is defined automatically, unless -nosynthesis is used.
+In addition, read_verilog always defines the macro YOSYS.
+
+See the Yosys README file for a list of non-standard Verilog features
+supported by the Yosys Verilog front-end.
+
+ERROR: Command syntax error: No filename given.
+> read_verilog
+>              ^
+
+yosys> read_verilog counter_opt2.v  counter_opt2.v  
+
+8. Executing Verilog-2005 frontend: counter_opt2.v
+Parsing Verilog input from `counter_opt2.v' to AST representation.
+counter_opt2.v:1: ERROR: Re-definition of module `\counter_opt'!
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> read_verilog counter_opt2.v   multiple_module_opt.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt read_verilog counter_opt.vliberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib .helpread_liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ERROR: File `.../lib/sky130_fd_sc_hd__tt_025C_1v80.lib' not found or is a directory
+
+yosys> read_liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+1. Executing Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 418 cell types from liberty file.
+
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib .verilog counter_opt2.v  multiple_module_opt.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt read_verilog counter_opt.v2.v
+
+2. Executing Verilog-2005 frontend: counter_opt2.v
+Parsing Verilog input from `counter_opt2.v' to AST representation.
+Generating RTLIL representation for module `\counter_opt'.
+Successfully finished Verilog frontend.
+
+yosys> read_verilog counter_opt2.vliberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib .verilog counter_opt2.v  multiple_module_opt.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt 
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \counter_opt
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \counter_opt
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$counter_opt2.v:5$2 in module counter_opt.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\counter_opt.$proc$counter_opt2.v:5$2'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\counter_opt.$proc$counter_opt2.v:5$2'.
+     1/1: $0\count[2:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\counter_opt.\count' using process `\counter_opt.$proc$counter_opt2.v:5$2'.
+  created $adff cell `$procdff$6' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `counter_opt.$proc$counter_opt2.v:5$2'.
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+<suppressed ~1 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.4. Executing CHECK pass (checking for obvious problems).
+Checking module counter_opt...
+Found and reported 0 problems.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell counter_opt.$add$counter_opt2.v:10$3 ($add).
+Removed top 29 bits (of 32) from port Y of cell counter_opt.$add$counter_opt2.v:10$3 ($add).
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module counter_opt:
+  creating $macc model for $add$counter_opt2.v:10$3 ($add).
+  creating $alu model for $macc $add$counter_opt2.v:10$3.
+  creating $alu cell for $add$counter_opt2.v:10$3: $auto$alumacc.cc:576:replace_alu$7
+  created 1 $alu and 0 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.17.5. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_opt..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_opt.
+Performed a total of 0 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 3 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~213 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+<suppressed ~27 debug messages>
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 15 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Computing hashes of 13 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 2 unused cells and 45 unused wires.
+<suppressed ~3 debug messages>
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Summary of detected clock domains:
+  11 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+3.22.2. Extracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, asynchronously reset by \reset
+
+3.22.2.1. Executed ABC.
+Extracted 8 gates and 11 wires to a netlist network with 3 inputs and 4 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+3.22.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:        1
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:        internal signals:        4
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        4
+Removing temp directory.
+Removing global temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_opt.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_opt'.
+Computing hashes of 9 cells of `\counter_opt'.
+Finding duplicate cells in `\counter_opt'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_opt..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `counter_opt'. Setting top module to counter_opt.
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \counter_opt
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \counter_opt
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== counter_opt ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        8 wires
+       14 wire bits
+        4 public wires
+        6 public wire bits
+        3 ports
+        3 port bits
+        9 cells
+        1   $_ANDNOT_
+        1   $_AND_
+        3   $_DFF_PP0_
+        1   $_NAND_
+        1   $_NOR_
+        1   $_NOT_
+        1   $_XNOR_
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module counter_opt...
+Found and reported 0 problems.
+
+yosys> synth -top counter_opt read_verilog counter_opt2.vliberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib .verilog counter_opt2.v  multiple_module_opt.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libsynth -top counter_opt dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+4. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+4.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\counter_opt':
+  mapped 3 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libsynth -top counter_opt read_verilog counter_opt2.vliberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib .verilog counter_opt2.v liberty -lib .../lib/sky130_fd_sc_hd__tt_025C_1v80.libverilog counter_opt2.v  multiple_module_opt.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapabc
+
+5. Executing ABC pass (technology mapping using ABC).
+
+5.1. Summary of detected clock domains:
+  12 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+5.2. Extracting gate netlist of module `\counter_opt' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+5.2.1. Executed ABC.
+Extracted 9 gates and 13 wires to a netlist network with 4 inputs and 7 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+5.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:        1
+ABC RESULTS:        internal signals:        2
+ABC RESULTS:           input signals:        4
+ABC RESULTS:          output signals:        7
+Removing temp directory.
+Removing global temp directory.
+
+yosys> shoe
+ERROR: No such command: shoe (type 'help' for a command overview)
+
+yosys> shoew
+
+6. Generating Graphviz representation of design.
+Writing dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module counter_opt to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> yosys> show
+
+7. Generating Graphviz representation of design.
+Writing dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module counter_opt to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> showeabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libdfflibmapsynth -top counter_opt dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.libabcshoewexit
+
+End of script. Logfile hash: 5846686311, time: 1275.33s, user: 0.17s, system: 0.32s, MEM: 28.88 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 341769232% 2x abc (0 sec), 186561540% 1x synth (0 sec), ...
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ls *df*const
+ls: cannot access '*df*const': No such file or directory
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ls *df*const*
+dff_const1.v  dff_const2.v  dff_const3.v  dff_const4.v  dff_const5.v  tb_dff_const1.v  tb_dff_const2.v  tb_dff_const3.v  tb_dff_const4.v  tb_dff_const5.v
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog dff_const1.v -o tb_dff_const1.v 
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+VCD info: dumpfile tb_dff_syncres.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.outiverilog dff_const1.v -o tb_dff_const1.v 
+tb_dff_const1.v:1: syntax error
+I give up.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog dff_const1.v tb_dff_const1.v 
+tb_dff_const1.v:1: syntax error
+I give up.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gvim git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.githttps://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+Cloning into 'sky130RTLDesignAndSynthesisWorkshop'...
+remote: Enumerating objects: 417, done.
+remote: Counting objects:   1% (1/69)remote: Counting objects:   2% (2/69)remote: Counting objects:   4% (3/69)remote: Counting objects:   5% (4/69)remote: Counting objects:   7% (5/69)remote: Counting objects:   8% (6/69)remote: Counting objects:  10% (7/69)remote: Counting objects:  11% (8/69)remote: Counting objects:  13% (9/69)remote: Counting objects:  14% (10/69)remote: Counting objects:  15% (11/69)remote: Counting objects:  17% (12/69)remote: Counting objects:  18% (13/69)remote: Counting objects:  20% (14/69)remote: Counting objects:  21% (15/69)remote: Counting objects:  23% (16/69)remote: Counting objects:  24% (17/69)remote: Counting objects:  26% (18/69)remote: Counting objects:  27% (19/69)remote: Counting objects:  28% (20/69)remote: Counting objects:  30% (21/69)remote: Counting objects:  31% (22/69)remote: Counting objects:  33% (23/69)remote: Counting objects:  34% (24/69)remote: Counting objects:  36% (25/69)remote: Counting objects:  37% (26/69)remote: Counting objects:  39% (27/69)remote: Counting objects:  40% (28/69)remote: Counting objects:  42% (29/69)remote: Counting objects:  43% (30/69)remote: Counting objects:  44% (31/69)remote: Counting objects:  46% (32/69)remote: Counting objects:  47% (33/69)remote: Counting objects:  49% (34/69)remote: Counting objects:  50% (35/69)remote: Counting objects:  52% (36/69)remote: Counting objects:  53% (37/69)remote: Counting objects:  55% (38/69)remote: Counting objects:  56% (39/69)remote: Counting objects:  57% (40/69)remote: Counting objects:  59% (41/69)remote: Counting objects:  60% (42/69)remote: Counting objects:  62% (43/69)remote: Counting objects:  63% (44/69)remote: Counting objects:  65% (45/69)remote: Counting objects:  66% (46/69)remote: Counting objects:  68% (47/69)remote: Counting objects:  69% (48/69)remote: Counting objects:  71% (49/69)remote: Counting objects:  72% (50/69)remote: Counting objects:  73% (51/69)remote: Counting objects:  75% (52/69)remote: Counting objects:  76% (53/69)remote: Counting objects:  78% (54/69)remote: Counting objects:  79% (55/69)remote: Counting objects:  81% (56/69)remote: Counting objects:  82% (57/69)remote: Counting objects:  84% (58/69)remote: Counting objects:  85% (59/69)remote: Counting objects:  86% (60/69)remote: Counting objects:  88% (61/69)remote: Counting objects:  89% (62/69)remote: Counting objects:  91% (63/69)remote: Counting objects:  92% (64/69)remote: Counting objects:  94% (65/69)remote: Counting objects:  95% (66/69)remote: Counting objects:  97% (67/69)remote: Counting objects:  98% (68/69)remote: Counting objects: 100% (69/69)remote: Counting objects: 100% (69/69), done.
+remote: Compressing objects:   1% (1/52)remote: Compressing objects:   3% (2/52)remote: Compressing objects:   5% (3/52)remote: Compressing objects:   7% (4/52)remote: Compressing objects:   9% (5/52)remote: Compressing objects:  11% (6/52)remote: Compressing objects:  13% (7/52)remote: Compressing objects:  15% (8/52)remote: Compressing objects:  17% (9/52)remote: Compressing objects:  19% (10/52)remote: Compressing objects:  21% (11/52)remote: Compressing objects:  23% (12/52)remote: Compressing objects:  25% (13/52)remote: Compressing objects:  26% (14/52)remote: Compressing objects:  28% (15/52)remote: Compressing objects:  30% (16/52)remote: Compressing objects:  32% (17/52)remote: Compressing objects:  34% (18/52)remote: Compressing objects:  36% (19/52)remote: Compressing objects:  38% (20/52)remote: Compressing objects:  40% (21/52)remote: Compressing objects:  42% (22/52)remote: Compressing objects:  44% (23/52)remote: Compressing objects:  46% (24/52)remote: Compressing objects:  48% (25/52)remote: Compressing objects:  50% (26/52)remote: Compressing objects:  51% (27/52)remote: Compressing objects:  53% (28/52)remote: Compressing objects:  55% (29/52)remote: Compressing objects:  57% (30/52)remote: Compressing objects:  59% (31/52)remote: Compressing objects:  61% (32/52)remote: Compressing objects:  63% (33/52)remote: Compressing objects:  65% (34/52)remote: Compressing objects:  67% (35/52)remote: Compressing objects:  69% (36/52)remote: Compressing objects:  71% (37/52)remote: Compressing objects:  73% (38/52)remote: Compressing objects:  75% (39/52)remote: Compressing objects:  76% (40/52)remote: Compressing objects:  78% (41/52)remote: Compressing objects:  80% (42/52)remote: Compressing objects:  82% (43/52)remote: Compressing objects:  84% (44/52)remote: Compressing objects:  86% (45/52)remote: Compressing objects:  88% (46/52)remote: Compressing objects:  90% (47/52)remote: Compressing objects:  92% (48/52)remote: Compressing objects:  94% (49/52)remote: Compressing objects:  96% (50/52)remote: Compressing objects:  98% (51/52)remote: Compressing objects: 100% (52/52)remote: Compressing objects: 100% (52/52), done.
+Receiving objects:   0% (1/417)Receiving objects:   1% (5/417)Receiving objects:   2% (9/417)Receiving objects:   3% (13/417)Receiving objects:   4% (17/417)Receiving objects:   5% (21/417), 1.22 MiB | 2.43 MiB/sReceiving objects:   6% (26/417), 1.22 MiB | 2.43 MiB/sReceiving objects:   7% (30/417), 1.22 MiB | 2.43 MiB/sReceiving objects:   8% (34/417), 1.22 MiB | 2.43 MiB/sReceiving objects:   9% (38/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  10% (42/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  11% (46/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  12% (51/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  13% (55/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  14% (59/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  15% (63/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  16% (67/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  17% (71/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  18% (76/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  19% (80/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  20% (84/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  21% (88/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  22% (92/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  23% (96/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  24% (101/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  25% (105/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  26% (109/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  27% (113/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  28% (117/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  29% (121/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  30% (126/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  31% (130/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  32% (134/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  33% (138/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  34% (142/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  35% (146/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  36% (151/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  37% (155/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  38% (159/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  39% (163/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  40% (167/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  41% (171/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  42% (176/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  43% (180/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  44% (184/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  45% (188/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  46% (192/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  47% (196/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  48% (201/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  49% (205/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  50% (209/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  51% (213/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  52% (217/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  53% (222/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  54% (226/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  55% (230/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  56% (234/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  57% (238/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  58% (242/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  59% (247/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  60% (251/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  61% (255/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  62% (259/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  63% (263/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  64% (267/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  65% (272/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  66% (276/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  67% (280/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  68% (284/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  69% (288/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  70% (292/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  71% (297/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  72% (301/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  73% (305/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  74% (309/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  75% (313/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  76% (317/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  77% (322/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  78% (326/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  79% (330/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  80% (334/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  81% (338/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  82% (342/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  83% (347/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  84% (351/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  85% (355/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  86% (359/417), 1.22 MiB | 2.43 MiB/sReceiving objects:  86% (359/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  87% (363/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  88% (367/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  89% (372/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  90% (376/417), 5.14 MiB | 5.13 MiB/sremote: Total 417 (delta 19), reused 47 (delta 12), pack-reused 348 (from 1)
+Receiving objects:  91% (380/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  92% (384/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  93% (388/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  94% (392/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  95% (397/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  96% (401/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  97% (405/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  98% (409/417), 5.14 MiB | 5.13 MiB/sReceiving objects:  99% (413/417), 5.14 MiB | 5.13 MiB/sReceiving objects: 100% (417/417), 5.14 MiB | 5.13 MiB/sReceiving objects: 100% (417/417), 7.79 MiB | 6.07 MiB/s, done.
+Resolving deltas:   0% (0/242)Resolving deltas:   1% (3/242)Resolving deltas:   2% (5/242)Resolving deltas:   3% (8/242)Resolving deltas:   4% (10/242)Resolving deltas:   5% (13/242)Resolving deltas:   6% (15/242)Resolving deltas:   7% (17/242)Resolving deltas:   8% (20/242)Resolving deltas:   9% (22/242)Resolving deltas:  10% (25/242)Resolving deltas:  11% (27/242)Resolving deltas:  12% (30/242)Resolving deltas:  13% (32/242)Resolving deltas:  14% (34/242)Resolving deltas:  15% (37/242)Resolving deltas:  16% (39/242)Resolving deltas:  17% (42/242)Resolving deltas:  18% (44/242)Resolving deltas:  19% (46/242)Resolving deltas:  20% (49/242)Resolving deltas:  21% (51/242)Resolving deltas:  22% (54/242)Resolving deltas:  23% (56/242)Resolving deltas:  24% (59/242)Resolving deltas:  25% (61/242)Resolving deltas:  26% (63/242)Resolving deltas:  27% (66/242)Resolving deltas:  28% (68/242)Resolving deltas:  29% (71/242)Resolving deltas:  30% (73/242)Resolving deltas:  31% (76/242)Resolving deltas:  32% (78/242)Resolving deltas:  33% (80/242)Resolving deltas:  34% (83/242)Resolving deltas:  35% (85/242)Resolving deltas:  36% (88/242)Resolving deltas:  37% (90/242)Resolving deltas:  38% (92/242)Resolving deltas:  39% (95/242)Resolving deltas:  40% (97/242)Resolving deltas:  41% (100/242)Resolving deltas:  42% (102/242)Resolving deltas:  43% (105/242)Resolving deltas:  44% (107/242)Resolving deltas:  45% (109/242)Resolving deltas:  46% (112/242)Resolving deltas:  47% (114/242)Resolving deltas:  48% (117/242)Resolving deltas:  49% (119/242)Resolving deltas:  50% (121/242)Resolving deltas:  51% (124/242)Resolving deltas:  52% (126/242)Resolving deltas:  53% (129/242)Resolving deltas:  54% (131/242)Resolving deltas:  55% (134/242)Resolving deltas:  56% (136/242)Resolving deltas:  57% (138/242)Resolving deltas:  58% (141/242)Resolving deltas:  59% (143/242)Resolving deltas:  60% (146/242)Resolving deltas:  61% (148/242)Resolving deltas:  62% (151/242)Resolving deltas:  63% (153/242)Resolving deltas:  64% (155/242)Resolving deltas:  65% (159/242)Resolving deltas:  66% (160/242)Resolving deltas:  67% (163/242)Resolving deltas:  68% (165/242)Resolving deltas:  69% (167/242)Resolving deltas:  70% (170/242)Resolving deltas:  71% (172/242)Resolving deltas:  72% (175/242)Resolving deltas:  73% (177/242)Resolving deltas:  74% (180/242)Resolving deltas:  75% (182/242)Resolving deltas:  76% (184/242)Resolving deltas:  77% (187/242)Resolving deltas:  78% (189/242)Resolving deltas:  79% (192/242)Resolving deltas:  80% (194/242)Resolving deltas:  81% (197/242)Resolving deltas:  82% (199/242)Resolving deltas:  83% (201/242)Resolving deltas:  84% (204/242)Resolving deltas:  85% (206/242)Resolving deltas:  86% (209/242)Resolving deltas:  87% (211/242)Resolving deltas:  88% (213/242)Resolving deltas:  89% (216/242)Resolving deltas:  90% (218/242)Resolving deltas:  91% (221/242)Resolving deltas:  92% (223/242)Resolving deltas:  93% (226/242)Resolving deltas:  94% (228/242)Resolving deltas:  95% (230/242)Resolving deltas:  96% (233/242)Resolving deltas:  97% (235/242)Resolving deltas:  98% (238/242)Resolving deltas:  99% (240/242)Resolving deltas: 100% (242/242)Resolving deltas: 100% (242/242), done.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.gitiverilog dff_const1.v tb_dff_const1.v 
+tb_dff_const1.v:1: syntax error
+I give up.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog dff_const1.v tb_dff_const1.v 
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+VCD info: dumpfile tb_dff_const1.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_dff_const1.vcd 
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[3000000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_dff_const1.vcd ./a.outiverilog dff_const1.v tb_dff_const1.v 22
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+VCD info: dumpfile tb_dff_const2.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.outiverilog dff_const2.v tb_dff_const2.v gtkwave tb_dff_const1.vcd2
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[3000000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> radread_liberty -lib ../luib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+1. Executing Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 418 cell types from liberty file.
+
+yosys> read_verilog dff_cpnonst1.v 
+
+2. Executing Verilog-2005 frontend: dff_const1.v
+Parsing Verilog input from `dff_const1.v' to AST representation.
+Generating RTLIL representation for module `\dff_const1'.
+Successfully finished Verilog frontend.
+
+yosys> synth -top dff_const1 
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \dff_const1
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \dff_const1
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$dff_const1.v:2$1 in module dff_const1.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\dff_const1.$proc$dff_const1.v:2$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dff_const1.$proc$dff_const1.v:2$1'.
+     1/1: $0\q[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dff_const1.\q' using process `\dff_const1.$proc$dff_const1.v:2$1'.
+  created $adff cell `$procdff$4' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dff_const1.$proc$dff_const1.v:2$1'.
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+<suppressed ~1 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.4. Executing CHECK pass (checking for obvious problems).
+Checking module dff_const1...
+Found and reported 0 problems.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const1.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const1.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module dff_const1:
+  created 0 $alu and 0 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const1.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.17.5. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const1.
+Performed a total of 0 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $adff.
+No more expansions possible.
+<suppressed ~78 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Summary of detected clock domains:
+  1 cells in clk=\clk, en={ }, arst=\reset, srst={ }
+
+3.22.2. Extracting gate netlist of module `\dff_const1' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, asynchronously reset by \reset
+
+3.22.2.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+Removing global temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const1.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const1'.
+Computing hashes of 1 cells of `\dff_const1'.
+Finding duplicate cells in `\dff_const1'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const1..
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `dff_const1'. Setting top module to dff_const1.
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \dff_const1
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \dff_const1
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== dff_const1 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        3 wires
+        3 wire bits
+        3 public wires
+        3 public wire bits
+        3 ports
+        3 port bits
+        1 cells
+        1   $_DFF_PP0_
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module dff_const1...
+Found and reported 0 problems.
+
+yosys> DFFLIdfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+4. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+Warning: Selection ".." did not match any module.
+Warning: Selection "lib/sky130_fd_sc_hd__tt_025C_1v80.lib" did not match any object.
+ERROR: Missing `-liberty liberty_file' option!
+
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib -liberty 
+
+5. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\dff_const1':
+  mapped 1 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+yosys> abc -liberty ../;lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Summary of detected clock domains:
+  2 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+6.2. Extracting gate netlist of module `\dff_const1' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+6.2.1. Executed ABC.
+Extracted 1 gates and 2 wires to a netlist network with 1 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+6.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+yosys> show
+
+7. Generating Graphviz representation of design.
+Writing dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module dff_const1 to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> read_verilog dff_const2.v 
+
+8. Executing Verilog-2005 frontend: dff_const2.v
+Parsing Verilog input from `dff_const2.v' to AST representation.
+Generating RTLIL representation for module `\dff_const2'.
+Successfully finished Verilog frontend.
+
+yosys> read_verilog dff_const2.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib dfflibmapsynth -top dff_const1read_verilog dff_const1.vsynth -top dff_const12
+
+9. Executing SYNTH pass.
+
+9.1. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1.1. Analyzing design hierarchy..
+Top module:  \dff_const2
+
+9.1.2. Analyzing design hierarchy..
+Top module:  \dff_const2
+Removing unused module `\dff_const1'.
+Removed 1 unused modules.
+
+9.2. Executing PROC pass (convert processes to netlists).
+
+9.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$dff_const2.v:2$81 in module dff_const2.
+Removed a total of 0 dead cases.
+
+9.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+9.2.4. Executing PROC_INIT pass (extract init attributes).
+
+9.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\dff_const2.$proc$dff_const2.v:2$81'.
+
+9.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+9.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dff_const2.$proc$dff_const2.v:2$81'.
+     1/1: $0\q[0:0]
+
+9.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+9.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dff_const2.\q' using process `\dff_const2.$proc$dff_const2.v:2$81'.
+  created $adff cell `$procdff$84' with positive edge clock and positive level reset.
+
+9.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dff_const2.$proc$dff_const2.v:2$81'.
+Cleaned up 0 empty switches.
+
+9.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+<suppressed ~1 debug messages>
+
+9.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.4. Executing CHECK pass (checking for obvious problems).
+Checking module dff_const2...
+Found and reported 0 problems.
+
+9.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+9.6. Executing OPT pass (performing simple optimizations).
+
+9.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 1 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const2.
+Performed a total of 0 changes.
+
+9.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 1 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 1-bit at position 0 on $procdff$84 ($adff) from module dff_const2.
+
+9.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const2.
+Performed a total of 0 changes.
+
+9.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+9.7. Executing FSM pass (extract and optimize FSM).
+
+9.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+9.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+9.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+9.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+9.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+9.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+9.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+9.8. Executing OPT pass (performing simple optimizations).
+
+9.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const2.
+Performed a total of 0 changes.
+
+9.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+9.9. Executing WREDUCE pass (reducing word size of cells).
+
+9.10. Executing PEEPOPT pass (run peephole optimizers).
+
+9.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module dff_const2:
+  created 0 $alu and 0 $macc cells.
+
+9.13. Executing SHARE pass (SAT-based resource sharing).
+
+9.14. Executing OPT pass (performing simple optimizations).
+
+9.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const2.
+Performed a total of 0 changes.
+
+9.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+9.15. Executing MEMORY pass.
+
+9.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+9.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+9.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+9.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+9.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+9.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+9.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+9.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+9.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.17. Executing OPT pass (performing simple optimizations).
+
+9.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.17.5. Finished fast OPT passes.
+
+9.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+9.19. Executing OPT pass (performing simple optimizations).
+
+9.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dff_const2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dff_const2.
+Performed a total of 0 changes.
+
+9.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.19.6. Executing OPT_SHARE pass.
+
+9.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+9.20. Executing TECHMAP pass (map to technology primitives).
+
+9.20.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+9.20.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~77 debug messages>
+
+9.21. Executing OPT pass (performing simple optimizations).
+
+9.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.21.5. Finished fast OPT passes.
+
+9.22. Executing ABC pass (technology mapping using ABC).
+
+9.22.1. Summary of detected clock domains:
+Removing global temp directory.
+
+9.23. Executing OPT pass (performing simple optimizations).
+
+9.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dff_const2.
+
+9.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dff_const2'.
+Computing hashes of 0 cells of `\dff_const2'.
+Finding duplicate cells in `\dff_const2'.
+Removed a total of 0 cells.
+
+9.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dff_const2..
+
+9.23.5. Finished fast OPT passes.
+
+9.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `dff_const2'. Setting top module to dff_const2.
+
+9.24.1. Analyzing design hierarchy..
+Top module:  \dff_const2
+
+9.24.2. Analyzing design hierarchy..
+Top module:  \dff_const2
+Removed 0 unused modules.
+
+9.25. Printing statistics.
+
+=== dff_const2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        3 wires
+        3 wire bits
+        3 public wires
+        3 public wire bits
+        3 ports
+        3 port bits
+
+9.26. Executing CHECK pass (checking for obvious problems).
+Checking module dff_const2...
+Found and reported 0 problems.
+
+yosys> synth -top dff_const2read_verilog dff_const2.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib dfflibmap-liberty 
+
+10. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+10.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+Mapping DFF/DLATCH cells in module `\dff_const2':
+
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib synth -top dff_const2read_verilog dff_const2.v showabc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+11. Executing ABC pass (technology mapping using ABC).
+
+11.1. Summary of detected clock domains:
+Removing global temp directory.
+
+yosys> show
+
+12. Generating Graphviz representation of design.
+Writing dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module dff_const2 to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> exit
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 0d32650c29, time: 162.86s, user: 0.30s, system: 0.65s, MEM: 28.88 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 58% 2x synth (0 sec), 42% 27x opt_clean (0 sec), ...
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ exit
+exit
+
+Script done on 2026-10-03 16:37:23+05:30 [COMMAND_EXIT_CODE="0"]

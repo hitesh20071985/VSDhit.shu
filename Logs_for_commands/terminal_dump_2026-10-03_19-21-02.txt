@@ -1,0 +1,114 @@
+Script started on 2026-10-03 19:21:02+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$                                                                                                                                                                                                            vboxuser@Hitesh:~$ sudo apt update
+[sudo] password for vboxuser: 
+[33m0% [Working][0m            Hit:1 https://download.docker.com/linux/ubuntu jammy InRelease
+[33m0% [Connecting to in.archive.ubuntu.com (91.189.92.22)] [Connecting to security.ubuntu.com (185.125.190.81)][0m[33m                                                                                                            0% [Waiting for headers] [Waiting for headers][0m                                              Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+[33m0% [Waiting for headers] [2 InRelease 2,572 B/129 kB 2%][0m                                                        Hit:3 http://in.archive.ubuntu.com/ubuntu jammy InRelease
+[33m0% [Waiting for headers] [2 InRelease 12.2 kB/129 kB 9%][0m                                                        Get:4 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+[33m0% [4 InRelease 4,096 B/128 kB 3%] [2 InRelease 37.2 kB/129 kB 29%][0m[33m0% [4 InRelease 13.4 kB/128 kB 10%] [2 InRelease 37.2 kB/129 kB 29%][0m[33m                                                                    0% [4 InRelease 40.9 kB/128 kB 32%][0m[33m                                   0% [4 InRelease 102 kB/128 kB 80%][0m[33m0% [Waiting for headers] [Waiting for headers][0m                                              Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [74.3 kB]
+[33m0% [Waiting for headers] [5 Components-amd64 65.3 kB/74.3 kB 88%][0m[33m                                                                 0% [Waiting for headers][0m[33m0% [5 Components-amd64 store 0 B] [Waiting for headers] [Waiting for headers][0m                                                                             Get:6 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+[33m0% [5 Components-amd64 store 0 B] [6 InRelease 9,692 B/127 kB 8%] [Waiting for headers][0m[33m                                                                                       0% [6 InRelease 29.7 kB/127 kB 23%] [Waiting for headers][0m[33m0% [6 InRelease 49.7 kB/127 kB 39%] [Waiting for headers][0m[33m                                                         0% [Waiting for headers][0m                        Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [127 kB]
+[33m0% [7 Components-amd64 4,761 B/127 kB 4%][0m[33m                                         0% [Waiting for headers][0m[33m0% [7 Components-amd64 store 0 B] [Waiting for headers][0m                                                       Get:8 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [117 kB]
+[33m0% [7 Components-amd64 store 0 B] [8 Components-amd64 4,761 B/117 kB 4%][0m[33m                                                                        0% [8 Components-amd64 12.3 kB/117 kB 10%][0m                                          Get:9 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [360 kB]
+[33m                                          0% [9 Components-amd64 4,678 B/360 kB 1%][0m[33m0% [8 Components-amd64 store 0 B] [9 Components-amd64 4,678 B/360 kB 1%][0m[33m                                                                        0% [9 Components-amd64 75.1 kB/360 kB 21%][0m[33m82% [9 Components-amd64 146 kB/360 kB 41%][0m[33m                                          98% [Working][0m             Get:10 http://in.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+[33m98% [Working][0m[33m98% [9 Components-amd64 store 0 B][0m[33m                                  98% [Waiting for headers][0m[33m98% [10 Components-amd64 store 0 B] [Waiting for headers][0m[33m                                                         98% [Waiting for headers][0m                         Get:11 http://in.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [5,760 B]
+[33m98% [11 Components-amd64 0 B/5,760 B 0%][0m[33m                                        99% [Working][0m             Get:12 http://in.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [12.4 kB]
+[33m100% [12 Components-amd64 8,513 B/12.4 kB 69%][0m[33m100% [11 Components-amd64 store 0 B] [12 Components-amd64 8,513 B/12.4 kB 69%][0m[33m                                                                              100% [12 Components-amd64 8,513 B/12.4 kB 69%][0m[33m                                              100% [Working][0m[33m100% [12 Components-amd64 store 0 B][0m[33m                                    100% [Working][0m              Fetched 1,082 kB in 3s (363 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 1%Reading package lists... 2%Reading package lists... 2%Reading package lists... 3%Reading package lists... 3%Reading package lists... 4%Reading package lists... 4%Reading package lists... 4%Reading package lists... 4%Reading package lists... 4%Reading package lists... 4%Reading package lists... 20%Reading package lists... 20%Reading package lists... 29%Reading package lists... 29%Reading package lists... 36%Reading package lists... 36%Reading package lists... 37%Reading package lists... 37%Reading package lists... 37%Reading package lists... 37%Reading package lists... 37%Reading package lists... 37%Reading package lists... 43%Reading package lists... 43%Reading package lists... 44%Reading package lists... 44%Reading package lists... 48%Reading package lists... 48%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 64%Reading package lists... 65%Reading package lists... 65%Reading package lists... 67%Reading package lists... 67%Reading package lists... 68%Reading package lists... 68%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 69%Reading package lists... 74%Reading package lists... 74%Reading package lists... 76%Reading package lists... 76%Reading package lists... 79%Reading package lists... 79%Reading package lists... 89%Reading package lists... 89%Reading package lists... 89%Reading package lists... 89%Reading package lists... 95%Reading package lists... 95%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+11 packages can be upgraded. Run 'apt list --upgradable' to see them.
+vboxuser@Hitesh:~$ sudo apt install -y zip
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+zip is already the newest version (3.0-12build2).
+zip set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 11 not upgraded.
+vboxuser@Hitesh:~$ ls
+Commands_for_yosys  [0m[01;34mDownloads[0m                 [01;34mngspice[0m   [01;34mPublic[0m                             [01;34mterminal_dumps[0m                    terminal_log_20261003_175616.txt  [01;34mVLSI[0m
+[01;34mcudd[0m                latest_dump_commands.txt  [01;34mOpenLane[0m  [01;34mskywater-pdk-libs-sky130_fd_sc_hd[0m  terminal_log_20261003_170218.txt  terminal_log_20261003_175717.txt
+[01;34mDesktop[0m             [01;34mmagic[0m                     [01;34mOpenSTA[0m   [01;34msnap[0m                               terminal_log_20261003_170230.txt  terminal_log_20261003_192102.txt
+[01;34mDocuments[0m           [01;34mMusic[0m                     [01;34mPictures[0m  [01;34mTemplates[0m                          terminal_log_20261003_173435.txt  [01;34mVideos[0m
+vboxuser@Hitesh:~$ cd Do
+Documents/ Downloads/ 
+vboxuser@Hitesh:~$ cd Downloads/
+vboxuser@Hitesh:~/Downloads$ ls
+gtkwave_3.3.86-1_amd64.deb  [0m[01;34mmy-vsd-workshop[0m  ngspice-37.tar.gz  OpenSTA_Fresh_Installation_Ubuntu22_04_Command_Guide.docx
+vboxuser@Hitesh:~/Downloads$ cs ..
+Command 'cs' not found, but can be installed with:
+sudo apt install csound
+vboxuser@Hitesh:~/Downloads$ cd ..
+vboxuser@Hitesh:~$ cd Pictures/
+vboxuser@Hitesh:~/Pictures$ ls
+[0m[01;34mScreenshots[0m
+vboxuser@Hitesh:~/Pictures$ cd  zip -r Scrw eenshots/ \   .zip Screenshots/
+  adding: Screenshots/ (stored 0%)
+  adding: Screenshots/image36.png (deflated 28%)
+  adding: Screenshots/image44.png (deflated 17%)
+  adding: Screenshots/image50.png (deflated 18%)
+  adding: Screenshots/image34.png (deflated 17%)
+  adding: Screenshots/image17.png (deflated 14%)
+  adding: Screenshots/image14.png (deflated 14%)
+  adding: Screenshots/image13.png (deflated 18%)
+  adding: Screenshots/image62.png (deflated 10%)
+  adding: Screenshots/image63.png (deflated 15%)
+  adding: Screenshots/image45.png (deflated 17%)
+  adding: Screenshots/image8.png (deflated 8%)
+  adding: Screenshots/image1.png (deflated 10%)
+  adding: Screenshots/image10.png (deflated 11%)
+  adding: Screenshots/image 32.png (deflated 17%)
+  adding: Screenshots/image29_not_as_expected.png (deflated 14%)
+  adding: Screenshots/image16.png (deflated 19%)
+  adding: Screenshots/image21.png (deflated 22%)
+  adding: Screenshots/image49.png (deflated 16%)
+  adding: Screenshots/image59.png (deflated 17%)
+  adding: Screenshots/image53.png (deflated 14%)
+  adding: Screenshots/image11.png (deflated 17%)
+  adding: Screenshots/image24.png (deflated 17%)
+  adding: Screenshots/image30_doesnot_has_buffers_at_inputs.png (deflated 12%)
+  adding: Screenshots/image46.png (deflated 17%)
+  adding: Screenshots/image2.png (deflated 18%)
+  adding: Screenshots/image0.png (deflated 13%)
+  adding: Screenshots/image54.png (deflated 16%)
+  adding: Screenshots/image3.png (deflated 11%)
+  adding: Screenshots/image23 (deflated 17%)
+  adding: Screenshots/image25.png (deflated 15%)
+  adding: Screenshots/image6.png (deflated 13%)
+  adding: Screenshots/image42.png (deflated 17%)
+  adding: Screenshots/image37.png (deflated 10%)
+  adding: Screenshots/image18.png (deflated 19%)
+  adding: Screenshots/image52.png (deflated 17%)
+  adding: Screenshots/image15.png (deflated 10%)
+  adding: Screenshots/image 38.png (deflated 17%)
+  adding: Screenshots/image51.png (deflated 15%)
+  adding: Screenshots/image55.png (deflated 15%)
+  adding: Screenshots/image57.png (deflated 16%)
+  adding: Screenshots/image4.png (deflated 12%)
+  adding: Screenshots/image19.png (deflated 20%)
+  adding: Screenshots/image31.png (deflated 13%)
+  adding: Screenshots/image39.png (deflated 19%)
+  adding: Screenshots/image7.png (deflated 9%)
+  adding: Screenshots/image58.png (deflated 10%)
+  adding: Screenshots/image33.png (deflated 14%)
+  adding: Screenshots/image9.png (deflated 10%)
+  adding: Screenshots/image41.png (deflated 14%)
+  adding: Screenshots/image60.png (deflated 16%)
+  adding: Screenshots/image35.png (deflated 18%)
+  adding: Screenshots/image40.png (deflated 17%)
+  adding: Screenshots/image43.png (deflated 16%)
+  adding: Screenshots/image5.png (deflated 7%)
+  adding: Screenshots/image22.png (deflated 16%)
+  adding: Screenshots/image12.png (deflated 11%)
+  adding: Screenshots/image28.png (deflated 14%)
+  adding: Screenshots/image48.png (deflated 15%)
+  adding: Screenshots/image20.png (deflated 20%)
+  adding: Screenshots/image64.png (deflated 14%)
+  adding: Screenshots/image27.png (deflated 15%)
+  adding: Screenshots/image26.png (deflated 15%)
+  adding: Screenshots/image56.png (deflated 10%)
+  adding: Screenshots/image61.png (deflated 16%)
+vboxuser@Hitesh:~/Pictures$ exit
+exit
+
+Script done on 2026-10-03 19:24:07+05:30 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,1106 @@
+Script started on 2026-10-03 17:34:35+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$                                                                                                                                                                                                                 vboxuser@Hitesh:~$                                                                                                                                                                                                            vboxuser@Hitesh:~$ cd ""$"R"T"L"_"F"O"L"D"E"R"
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ternary_operator_mux.v tb_ternary_operator_mux.v 
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+VCD info: dumpfile tb_ternary_operator_mux.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_ternary_operator_mux.v vcd
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[300000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys 
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m1. [0m[1m[37mExecuting Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[0mImported 418 cell types from liberty file.
+
+yosys> read_verilog ternary_operator_mux.v 
+
+[1m[36m2. [0m[1m[37mExecuting Verilog-2005 frontend: ternary_operator_mux.v
+[0mParsing Verilog input from `ternary_operator_mux.v' to AST representation.
+Generating RTLIL representation for module `\ternary_operator_mux'.
+Successfully finished Verilog frontend.
+
+yosys> synth -top ternary_operator_mux 
+
+[1m[36m3. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m3.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m
+[1m[36m3.1.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \ternary_operator_mux
+
+[1m[36m3.1.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \ternary_operator_mux
+Removed 0 unused modules.
+
+[1m[36m3.2. [0m[1m[37mExecuting PROC pass (convert processes to netlists).
+[0m
+[1m[36m3.2.1. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m3.2.2. [0m[1m[37mExecuting PROC_RMDEAD pass (remove dead branches from decision trees).
+[0mRemoved a total of 0 dead cases.
+
+[1m[36m3.2.3. [0m[1m[37mExecuting PROC_PRUNE pass (remove redundant assignments in processes).
+[0mRemoved 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+[1m[36m3.2.4. [0m[1m[37mExecuting PROC_INIT pass (extract init attributes).
+[0m
+[1m[36m3.2.5. [0m[1m[37mExecuting PROC_ARST pass (detect async resets in processes).
+[0m
+[1m[36m3.2.6. [0m[1m[37mExecuting PROC_ROM pass (convert switches to ROMs).
+[0mConverted 0 switches.
+
+[1m[36m3.2.7. [0m[1m[37mExecuting PROC_MUX pass (convert decision trees to multiplexers).
+[0m
+[1m[36m3.2.8. [0m[1m[37mExecuting PROC_DLATCH pass (convert process syncs to latches).
+[0m
+[1m[36m3.2.9. [0m[1m[37mExecuting PROC_DFF pass (convert process syncs to FFs).
+[0m
+[1m[36m3.2.10. [0m[1m[37mExecuting PROC_MEMWR pass (convert process memory writes to cells).
+[0m
+[1m[36m3.2.11. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m3.2.12. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.3. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.4. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module ternary_operator_mux...
+Found and reported 0 problems.
+
+[1m[36m3.5. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m3.6. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.6.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.6.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \ternary_operator_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.6.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \ternary_operator_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.6.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.6.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.6.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.6.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.7. [0m[1m[37mExecuting FSM pass (extract and optimize FSM).
+[0m
+[1m[36m3.7.1. [0m[1m[37mExecuting FSM_DETECT pass (finding FSMs in design).
+[0m
+[1m[36m3.7.2. [0m[1m[37mExecuting FSM_EXTRACT pass (extracting FSM from design).
+[0m
+[1m[36m3.7.3. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.7.5. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.6. [0m[1m[37mExecuting FSM_RECODE pass (re-assigning FSM state encoding).
+[0m
+[1m[36m3.7.7. [0m[1m[37mExecuting FSM_INFO pass (dumping all available information on FSM cells).
+[0m
+[1m[36m3.7.8. [0m[1m[37mExecuting FSM_MAP pass (mapping FSMs to basic logic).
+[0m
+[1m[36m3.8. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.8.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.8.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \ternary_operator_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.8.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \ternary_operator_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.8.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.8.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.8.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.8.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.9. [0m[1m[37mExecuting WREDUCE pass (reducing word size of cells).
+[0m
+[1m[36m3.10. [0m[1m[37mExecuting PEEPOPT pass (run peephole optimizers).
+[0m
+[1m[36m3.11. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.12. [0m[1m[37mExecuting ALUMACC pass (create $alu and $macc cells).
+[0mExtracting $alu and $macc cells in module ternary_operator_mux:
+  created 0 $alu and 0 $macc cells.
+
+[1m[36m3.13. [0m[1m[37mExecuting SHARE pass (SAT-based resource sharing).
+[0m
+[1m[36m3.14. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.14.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.14.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \ternary_operator_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.14.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \ternary_operator_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.14.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.14.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.14.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.14.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.15. [0m[1m[37mExecuting MEMORY pass.
+[0m
+[1m[36m3.15.1. [0m[1m[37mExecuting OPT_MEM pass (optimize memories).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.2. [0m[1m[37mExecuting OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.3. [0m[1m[37mExecuting OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[0m
+[1m[36m3.15.4. [0m[1m[37mExecuting MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[0m
+[1m[36m3.15.5. [0m[1m[37mExecuting MEMORY_DFF pass (merging $dff cells to $memrd).
+[0m
+[1m[36m3.15.6. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.15.7. [0m[1m[37mExecuting MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[0m
+[1m[36m3.15.8. [0m[1m[37mExecuting OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.9. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.15.10. [0m[1m[37mExecuting MEMORY_COLLECT pass (generating $mem cells).
+[0m
+[1m[36m3.16. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.17. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.17.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.17.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.17.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.17.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.17.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.18. [0m[1m[37mExecuting MEMORY_MAP pass (converting memories to logic and flip-flops).
+[0m
+[1m[36m3.19. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.19.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.19.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \ternary_operator_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.19.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \ternary_operator_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.19.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.6. [0m[1m[37mExecuting OPT_SHARE pass.
+[0m
+[1m[36m3.19.7. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.19.8. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.19.9. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.19.10. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.20. [0m[1m[37mExecuting TECHMAP pass (map to technology primitives).
+[0m
+[1m[36m3.20.1. [0m[1m[37mExecuting Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+[0mParsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+[1m[36m3.20.2. [0m[1m[37mContinuing TECHMAP pass.
+[0mUsing extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~78 debug messages>
+
+[1m[36m3.21. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.21.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.21.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.21.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.21.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+
+[1m[36m3.21.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.22. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m3.22.1. [0m[1m[37mSummary of detected clock domains:
+[0m  1 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m3.22.2. [0m[1m[37mExtracting gate netlist of module `\ternary_operator_mux' to `<abc-temp-dir>/input.blif'..
+[0mNo matching clock domain found. Not extracting any FF cells.
+
+[1m[36m3.22.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 1 gates and 4 wires to a netlist network with 3 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m3.22.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:               MUX cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+[1m[36m3.23. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.23.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module ternary_operator_mux.
+
+[1m[36m3.23.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\ternary_operator_mux'.
+Computing hashes of 1 cells of `\ternary_operator_mux'.
+Finding duplicate cells in `\ternary_operator_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.23.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.23.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \ternary_operator_mux..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m3.23.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.24. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0mAttribute `top' found on module `ternary_operator_mux'. Setting top module to ternary_operator_mux.
+
+[1m[36m3.24.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \ternary_operator_mux
+
+[1m[36m3.24.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \ternary_operator_mux
+Removed 0 unused modules.
+
+[1m[36m3.25. [0m[1m[37mPrinting statistics.
+[0m
+=== ternary_operator_mux ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+        4 wire bits
+        4 public wires
+        4 public wire bits
+        4 ports
+        4 port bits
+        1 cells
+        1   $_MUX_
+
+[1m[36m3.26. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module ternary_operator_mux...
+Found and reported 0 problems.
+
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m4. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m4.1. [0m[1m[37mSummary of detected clock domains:
+[0m  1 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m4.2. [0m[1m[37mExtracting gate netlist of module `\ternary_operator_mux' to `<abc-temp-dir>/input.blif'..
+[0mABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+[1m[36m4.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 1 gates and 4 wires to a netlist network with 3 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m4.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+yosys> write_verilog -noattr ternary_operator_mux.v  _netlist.v
+
+[1m[36m5. [0m[1m[37mExecuting Verilog backend.
+[0m
+[1m[36m5.1. [0m[1m[37mExecuting BMUXMAP pass.
+[0m
+[1m[36m5.2. [0m[1m[37mExecuting DEMUXMAP pass.
+[0mDumping module `\ternary_operator_mux'.
+
+yosys> show
+
+[1m[36m6. [0m[1m[37mGenerating Graphviz representation of design.
+[0mWriting dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module ternary_operator_mux to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> exit
+
+End of script. Logfile hash: 5a3b4d7f18, time: 92.92s, user: 0.17s, system: 0.34s, MEM: 28.50 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 33% 2x abc (0 sec), 18% 1x synth (0 sec), ...
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/                   ls ../my_lib/verilog_model/
+primitives.v  sky130_fd_sc_hd.v
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ Iverilog        iverilog //  ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ter<g ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v                                                             
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ,.a_out       ./a.out
+VCD info: dumpfile tb_ternary_operator_mux.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_ternary_operator_mux.vcd 
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[300000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog bad_mux.v tb_bad_mux.v 
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+VCD info: dumpfile tb_bad_mux.vcd opened for output.
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_bad_mux.vcd 
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[0] start time.
+[300000] end time.
+WM Destroy
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> read_liberty -lin b ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+[1m[36m1. [0m[1m[37mExecuting Liberty frontend: ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+[0mImported 418 cell types from liberty file.
+
+yosys> read_verilog bad_mux.v 
+
+[1m[36m2. [0m[1m[37mExecuting Verilog-2005 frontend: bad_mux.v
+[0mParsing Verilog input from `bad_mux.v' to AST representation.
+Generating RTLIL representation for module `\bad_mux'.
+Note: Assuming pure combinatorial block at bad_mux.v:4.1-10.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+yosys> synth -top bad_mux 
+
+[1m[36m3. [0m[1m[37mExecuting SYNTH pass.
+[0m
+[1m[36m3.1. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0m
+[1m[36m3.1.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \bad_mux
+
+[1m[36m3.1.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \bad_mux
+Removed 0 unused modules.
+
+[1m[36m3.2. [0m[1m[37mExecuting PROC pass (convert processes to netlists).
+[0m
+[1m[36m3.2.1. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mCleaned up 0 empty switches.
+
+[1m[36m3.2.2. [0m[1m[37mExecuting PROC_RMDEAD pass (remove dead branches from decision trees).
+[0mMarked 1 switch rules as full_case in process $proc$bad_mux.v:4$1 in module bad_mux.
+Removed a total of 0 dead cases.
+
+[1m[36m3.2.3. [0m[1m[37mExecuting PROC_PRUNE pass (remove redundant assignments in processes).
+[0mRemoved 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+[1m[36m3.2.4. [0m[1m[37mExecuting PROC_INIT pass (extract init attributes).
+[0m
+[1m[36m3.2.5. [0m[1m[37mExecuting PROC_ARST pass (detect async resets in processes).
+[0m
+[1m[36m3.2.6. [0m[1m[37mExecuting PROC_ROM pass (convert switches to ROMs).
+[0mConverted 0 switches.
+<suppressed ~1 debug messages>
+
+[1m[36m3.2.7. [0m[1m[37mExecuting PROC_MUX pass (convert decision trees to multiplexers).
+[0mCreating decoders for process `\bad_mux.$proc$bad_mux.v:4$1'.
+     1/1: $0\y[0:0]
+
+[1m[36m3.2.8. [0m[1m[37mExecuting PROC_DLATCH pass (convert process syncs to latches).
+[0mNo latch inferred for signal `\bad_mux.\y' from process `\bad_mux.$proc$bad_mux.v:4$1'.
+
+[1m[36m3.2.9. [0m[1m[37mExecuting PROC_DFF pass (convert process syncs to FFs).
+[0m
+[1m[36m3.2.10. [0m[1m[37mExecuting PROC_MEMWR pass (convert process memory writes to cells).
+[0m
+[1m[36m3.2.11. [0m[1m[37mExecuting PROC_CLEAN pass (remove empty switches from decision trees).
+[0mFound and cleaned up 1 empty switch in `\bad_mux.$proc$bad_mux.v:4$1'.
+Removing empty process `bad_mux.$proc$bad_mux.v:4$1'.
+Cleaned up 1 empty switch.
+
+[1m[36m3.2.12. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.3. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.4. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module bad_mux...
+Found and reported 0 problems.
+
+[1m[36m3.5. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m3.6. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.6.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.6.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \bad_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.6.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \bad_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.6.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.6.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.6.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.6.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.6.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.7. [0m[1m[37mExecuting FSM pass (extract and optimize FSM).
+[0m
+[1m[36m3.7.1. [0m[1m[37mExecuting FSM_DETECT pass (finding FSMs in design).
+[0m
+[1m[36m3.7.2. [0m[1m[37mExecuting FSM_EXTRACT pass (extracting FSM from design).
+[0m
+[1m[36m3.7.3. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.7.5. [0m[1m[37mExecuting FSM_OPT pass (simple optimizations of FSMs).
+[0m
+[1m[36m3.7.6. [0m[1m[37mExecuting FSM_RECODE pass (re-assigning FSM state encoding).
+[0m
+[1m[36m3.7.7. [0m[1m[37mExecuting FSM_INFO pass (dumping all available information on FSM cells).
+[0m
+[1m[36m3.7.8. [0m[1m[37mExecuting FSM_MAP pass (mapping FSMs to basic logic).
+[0m
+[1m[36m3.8. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.8.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.8.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \bad_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.8.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \bad_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.8.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.8.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.8.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.8.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.8.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.9. [0m[1m[37mExecuting WREDUCE pass (reducing word size of cells).
+[0m
+[1m[36m3.10. [0m[1m[37mExecuting PEEPOPT pass (run peephole optimizers).
+[0m
+[1m[36m3.11. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.12. [0m[1m[37mExecuting ALUMACC pass (create $alu and $macc cells).
+[0mExtracting $alu and $macc cells in module bad_mux:
+  created 0 $alu and 0 $macc cells.
+
+[1m[36m3.13. [0m[1m[37mExecuting SHARE pass (SAT-based resource sharing).
+[0m
+[1m[36m3.14. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.14.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.14.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \bad_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.14.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \bad_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.14.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.14.6. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.14.7. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.14.8. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.14.9. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.15. [0m[1m[37mExecuting MEMORY pass.
+[0m
+[1m[36m3.15.1. [0m[1m[37mExecuting OPT_MEM pass (optimize memories).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.2. [0m[1m[37mExecuting OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.3. [0m[1m[37mExecuting OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[0m
+[1m[36m3.15.4. [0m[1m[37mExecuting MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[0m
+[1m[36m3.15.5. [0m[1m[37mExecuting MEMORY_DFF pass (merging $dff cells to $memrd).
+[0m
+[1m[36m3.15.6. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.15.7. [0m[1m[37mExecuting MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[0m
+[1m[36m3.15.8. [0m[1m[37mExecuting OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[0mPerformed a total of 0 transformations.
+
+[1m[36m3.15.9. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.15.10. [0m[1m[37mExecuting MEMORY_COLLECT pass (generating $mem cells).
+[0m
+[1m[36m3.16. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.17. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.17.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.17.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.17.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.17.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.17.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.18. [0m[1m[37mExecuting MEMORY_MAP pass (converting memories to logic and flip-flops).
+[0m
+[1m[36m3.19. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.19.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.19.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.3. [0m[1m[37mExecuting OPT_MUXTREE pass (detect dead branches in mux trees).
+[0mRunning muxtree optimizer on module \bad_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+[1m[36m3.19.4. [0m[1m[37mExecuting OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[0m  Optimizing cells in module \bad_mux.
+Performed a total of 0 changes.
+
+[1m[36m3.19.5. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.19.6. [0m[1m[37mExecuting OPT_SHARE pass.
+[0m
+[1m[36m3.19.7. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.19.8. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.19.9. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.19.10. [0m[1m[37mFinished fast OPT passes. (There is nothing left to do.)
+[0m
+[1m[36m3.20. [0m[1m[37mExecuting TECHMAP pass (map to technology primitives).
+[0m
+[1m[36m3.20.1. [0m[1m[37mExecuting Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+[0mParsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+[1m[36m3.20.2. [0m[1m[37mContinuing TECHMAP pass.
+[0mUsing extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~78 debug messages>
+
+[1m[36m3.21. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.21.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.21.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.21.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.21.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+
+[1m[36m3.21.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.22. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m3.22.1. [0m[1m[37mSummary of detected clock domains:
+[0m  1 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m3.22.2. [0m[1m[37mExtracting gate netlist of module `\bad_mux' to `<abc-temp-dir>/input.blif'..
+[0mNo matching clock domain found. Not extracting any FF cells.
+
+[1m[36m3.22.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 1 gates and 4 wires to a netlist network with 3 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m3.22.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:               MUX cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+[1m[36m3.23. [0m[1m[37mExecuting OPT pass (performing simple optimizations).
+[0m
+[1m[36m3.23.1. [0m[1m[37mExecuting OPT_EXPR pass (perform const folding).
+[0mOptimizing module bad_mux.
+
+[1m[36m3.23.2. [0m[1m[37mExecuting OPT_MERGE pass (detect identical cells).
+[0mFinding identical cells in module `\bad_mux'.
+Computing hashes of 1 cells of `\bad_mux'.
+Finding duplicate cells in `\bad_mux'.
+Removed a total of 0 cells.
+
+[1m[36m3.23.3. [0m[1m[37mExecuting OPT_DFF pass (perform DFF optimizations).
+[0m
+[1m[36m3.23.4. [0m[1m[37mExecuting OPT_CLEAN pass (remove unused cells and wires).
+[0mFinding unused cells or wires in module \bad_mux..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+[1m[36m3.23.5. [0m[1m[37mFinished fast OPT passes.
+[0m
+[1m[36m3.24. [0m[1m[37mExecuting HIERARCHY pass (managing design hierarchy).
+[0mAttribute `top' found on module `bad_mux'. Setting top module to bad_mux.
+
+[1m[36m3.24.1. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \bad_mux
+
+[1m[36m3.24.2. [0m[1m[37mAnalyzing design hierarchy..
+[0mTop module:  \bad_mux
+Removed 0 unused modules.
+
+[1m[36m3.25. [0m[1m[37mPrinting statistics.
+[0m
+=== bad_mux ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+        4 wire bits
+        4 public wires
+        4 public wire bits
+        4 ports
+        4 port bits
+        1 cells
+        1   $_MUX_
+
+[1m[36m3.26. [0m[1m[37mExecuting CHECK pass (checking for obvious problems).
+[0mChecking module bad_mux...
+Found and reported 0 problems.
+
+yosys> abs -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+[91mERROR: [0m[1m[34mNo such command: abs (type 'help' for a command overview)
+[0m
+yosys> abs -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib yosys> abc
+
+[1m[36m4. [0m[1m[37mExecuting ABC pass (technology mapping using ABC).
+[0m
+[1m[36m4.1. [0m[1m[37mSummary of detected clock domains:
+[0m  1 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+[1m[36m4.2. [0m[1m[37mExtracting gate netlist of module `\bad_mux' to `<abc-temp-dir>/input.blif'..
+[0mABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+[1m[36m4.2.1. [0m[1m[37mExecuted ABC.
+[0mExtracted 1 gates and 4 wires to a netlist network with 3 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Sep 30 2026 08:51:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_749b1ae0.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+[1m[36m4.2.2. [0m[1m[37mRe-integrating ABC results.
+[0mABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+Removing global temp directory.
+
+yosys> write_verilog -noattr bad_mux_net.v
+
+[1m[36m5. [0m[1m[37mExecuting Verilog backend.
+[0m
+[1m[36m5.1. [0m[1m[37mExecuting BMUXMAP pass.
+[0m
+[1m[36m5.2. [0m[1m[37mExecuting DEMUXMAP pass.
+[0mDumping module `\bad_mux'.
+
+yosys> show
+
+[1m[36m6. [0m[1m[37mGenerating Graphviz representation of design.
+[0mWriting dot description to `/home/vboxuser/.yosys_show.dot'.
+Dumping module bad_mux to page 1.
+Exec: { test -f '/home/vboxuser/.yosys_show.dot.pid' && fuser -s '/home/vboxuser/.yosys_show.dot.pid' 2> /dev/null; } || ( echo $$ >&3; exec xdot '/home/vboxuser/.yosys_show.dot'; ) 3> '/home/vboxuser/.yosys_show.dot.pid' &
+
+yosys> exit
+
+End of script. Logfile hash: 8d639eab81, time: 83.39s, user: 0.13s, system: 0.29s, MEM: 29.00 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 34% 2x abc (0 sec), 19% 1x synth (0 sec), ...
+vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilogyosys   gtkwave tb_bad_mux.vcd ./a.out                iverilog bad_mux.v tb_bad_mux.v gtkwave tb_ternary_operator_mux.vcd iverilog bad_mux.v tb_bad_mux.v     gtkwave tb_ternary_operator_mux.vcd ./a.out                             <g ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v             vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_           bad_mux_<es$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v bad_mux_net.v                                                                vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v bad_mux_net.v bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  bad_mux_net.v  vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bavboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v badvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_vboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_muvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_muxvboxuser@Hitesh:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/ver

@@ -1,0 +1,110 @@
+Script started on 2026-10-03 12:41:17+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$ vboxuser@Hitesh:~$ yosys
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+
+yosys> yosys --verssion
+ERROR: No such command: yosys (type 'help' for a command overview)
+
+yosys> exit
+
+End of script. Logfile hash: 8222eb6758, time: 9.59s, user: 0.00s, system: 0.02s, MEM: 21.75 MB peak
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+Time spent: 100% 0x id_gc (0 sec)
+vboxuser@Hitesh:~$ yosys --version
+Yosys 0.69+158 (git sha1 a1a0ad7d4, Release, GNU /usr/bin/g++ 11.4.0)
+vboxuser@Hitesh:~$ iverilog --version
+iverilog: invalid option -- '-'
+vboxuser@Hitesh:~$ iverilog --versionV
+Icarus Verilog version 11.0 (stable) ()
+
+Copyright 1998-2020 Stephen Williams
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Icarus Verilog Preprocessor version 11.0 (stable) ()
+
+Copyright (c) 1999-2020 Stephen Williams (steve@icarus.com)
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Icarus Verilog Parser/Elaborator version 11.0 (stable) ()
+
+Copyright (c) 1998-2020 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+ FLAGS DLL vvp.tgt
+vvp.tgt: Icarus Verilog VVP Code Generator 11.0 (stable) ()
+
+Copyright (c) 2001-2020 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+vboxuser@Hitesh:~$ gtkwave --version
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+vboxuser@Hitesh:~$ gtkwave
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+GTKWAVE | Use the -h, --help command line flags to display help.
+WM Destroy
+vboxuser@Hitesh:~$ exit
+exit
+
+Script done on 2026-10-03 12:42:59+05:30 [COMMAND_EXIT_CODE="0"]

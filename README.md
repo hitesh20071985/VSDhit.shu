@@ -1,26 +1,28 @@
-# RTL Design and Synthesis Workshop
+# Welcome
+This is a repository for providing outputs of the workshop/tutorial I am attending these days.
+A brief introduction is provided in the welcome video to provide insights of what this workshop is all about, followed by the tool installation. Although I would not hesitate to mention that after a long long time someone has beautifully covered the basics of HDL and RTL design.
+## Tool Installation
+A caution here, make sure that you're using Ubuntu 22.04 with minimum 100GB storage and minimum 8GB RAM allocated to it in Virtual machine. Also, do not use 3D accelerator, that would cause unexpected outputs
 
-This repository contains my RTL design, synthesis, timing-analysis,
-and physical-design exercises.
+<details>
 
-## Contents
+<summary> Tool Installation </summary>
+### Installing YOSYS
 
-- Verilog RTL examples
-- Testbenches
-- Yosys synthesis exercises
-- Icarus Verilog simulations
-- GTKWave waveform analysis
-- SKY130 standard-cell experiments
-- Static timing analysis
-- Physical design exercises
+```
+$ git clone https://github.com/YosysHQ/yosys.git
+$ cd yosys
+$ sudo apt install make (If make is not installed please install it)
+$ sudo apt-get install build-essential clang bison flex \
+    libreadline-dev gawk tcl-dev libffi-dev git \
+    graphviz xdot pkg-config python3 libboost-system-dev \
+    libboost-python-dev libboost-filesystem-dev zlib1g-dev
+$ make
+$ sudo make install
+```
 
-## Tools
+![Setup](Images/image0.png)
 
-- Yosys
-- Icarus Verilog
-- GTKWave
-- OpenSTA
-- OpenROAD
-- SKY130 PDK
+
 # VSDhit.shu
 # VSDhit.shu

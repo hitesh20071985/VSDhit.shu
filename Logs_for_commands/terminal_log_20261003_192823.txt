@@ -1,0 +1,26 @@
+Script started on 2026-10-03 19:28:23+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$ cd terminal_dumps/
+vboxuser@Hitesh:~/terminal_dumps$ cd ..
+vboxuser@Hitesh:~$ zip -r terminal_dumps/ .zip terminal_dumps/ /
+  adding: terminal_dumps/ (stored 0%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_15-24-46.txt (deflated 84%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_13-47-03.txt (deflated 89%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_13-47-03_clean.txt (deflated 92%)
+  adding: terminal_dumps/terminal_log_20261003_170218.txt (deflated 17%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_12-53-52_clean.txt (deflated 84%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_14-10-36_clean.txt (deflated 91%)
+  adding: terminal_dumps/terminal_log_20261003_192102.txt (deflated 84%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_14-10-36.txt (deflated 92%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_14-53-45_clean.txt (deflated 91%)
+  adding: terminal_dumps/terminal_log_20261003_175616.txt (stored 0%)
+  adding: terminal_dumps/terminal_log_20261003_173435.txt (deflated 90%)
+  adding: terminal_dumps/terminal_log_20261003_170230.txt (deflated 91%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_14-53-45.txt (deflated 92%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_12-41-17.txt (deflated 76%)
+  adding: terminal_dumps/terminal_log_20261003_175717.txt (deflated 94%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_12-41-17_clean.txt (deflated 75%)
+  adding: terminal_dumps/terminal_dump_2026-10-03_12-53-52.txt (deflated 87%)
+vboxuser@Hitesh:~$ exit
+exit
+
+Script done on 2026-10-03 19:28:54+05:30 [COMMAND_EXIT_CODE="0"]

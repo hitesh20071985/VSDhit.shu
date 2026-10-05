@@ -1,0 +1,55 @@
+Script started on 2026-10-03 23:11:35+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~$ cd D`  Downloads/my-vsd-workshop/
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ cd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-current<kshop$ git commit -m "Lab outputs and command logs"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd .   statuscd ~/Downloads/my-vsd-workshoppwd                           cd ~/Downloads/my-vsd-workshopgit status                    
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Installation_Guide.docx
+
+nothing added to commit but untracked files present (use "git add" to track)
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statuscd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-current<kshop$ git commit -m "Lab outputs and command logs"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd .   statuscd ~/Downloads/my-vsd-workshopgit status                    add    .
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git add .statuscd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-current<kshop$ git commit -m "Lab outputs and command logs"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd . status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   Installation_Guide.docx
+
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd . statuscd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-current<kshop$ git commit -m "Lab outputs and command logs"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git status<kshop$ git commit -m "Lab outputs and command logs"   " " " " " " " " " " " vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git commit -m "Lab outputs and "" " " " " " " " " " " " " " " " I"n"s"t"a"l"l"a"t"i"o"n"_"g"u"i"d"</my-vsd-workshop$ git commit -m "Installation_guide"                         
+[main e7bc2b9] Installation_guide
+ Committer: vboxuser <vboxuser@Hitesh.myguest.virtualbox.org>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Installation_Guide.docx
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ <my-vsd-workshop$ git commit -m "Installation_guide"vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd . statuscd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-current<kshop$ git commit -m "Lab outputs and command logs"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git branch --show-current
+main
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git branch --show-current<my-vsd-workshop$ git commit -m "Installation_guide"                  vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git statusadd . statuscd Downloads/my-vsd-workshop/exit                         git push origin mainbranch --show-currentpush origin main     
+Username for 'https://github.com': hitesh20071985
+Password for 'https://hitesh20071985@github.com': 
+Enumerating objects: 4, done.
+Counting objects:  25% (1/4)Counting objects:  50% (2/4)Counting objects:  75% (3/4)Counting objects: 100% (4/4)Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 38.46 KiB | 2.75 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)        remote: Resolving deltas: 100% (1/1)        remote: Resolving deltas: 100% (1/1), completed with 1 local object.        
+To https://github.com/hitesh20071985/VSDhit.shu.git
+   ea0b22c..e7bc2b9  main -> main
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ exit
+exit
+
+Script done on 2026-10-03 23:14:17+05:30 [COMMAND_EXIT_CODE="0"]

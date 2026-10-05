@@ -1,0 +1,214 @@
+Script started on 2026-10-03 22:51:02+05:30 [TERM="dumb" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ pwd
+/home/vboxuser/Downloads/my-vsd-workshop
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ ^C
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ cd ~/Downloads/my-vsd-workshop
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Images/
+	Logs_for_commands/
+
+nothing added to commit but untracked files present (use "git add" to track)
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git add .
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   Images/image 32.png
+	new file:   Images/image 38.png
+	new file:   Images/image0.png
+	new file:   Images/image1.png
+	new file:   Images/image10.png
+	new file:   Images/image11.png
+	new file:   Images/image12.png
+	new file:   Images/image13.png
+	new file:   Images/image14.png
+	new file:   Images/image15.png
+	new file:   Images/image16.png
+	new file:   Images/image17.png
+	new file:   Images/image18.png
+	new file:   Images/image19.png
+	new file:   Images/image2.png
+	new file:   Images/image20.png
+	new file:   Images/image21.png
+	new file:   Images/image22.png
+	new file:   Images/image23
+	new file:   Images/image24.png
+	new file:   Images/image25.png
+	new file:   Images/image26.png
+	new file:   Images/image27.png
+	new file:   Images/image28.png
+	new file:   Images/image29_not_as_expected.png
+	new file:   Images/image3.png
+	new file:   Images/image30_doesnot_has_buffers_at_inputs.png
+	new file:   Images/image31.png
+	new file:   Images/image33.png
+	new file:   Images/image34.png
+	new file:   Images/image35.png
+	new file:   Images/image36.png
+	new file:   Images/image37.png
+	new file:   Images/image39.png
+	new file:   Images/image4.png
+	new file:   Images/image40.png
+	new file:   Images/image41.png
+	new file:   Images/image42.png
+	new file:   Images/image43.png
+	new file:   Images/image44.png
+	new file:   Images/image45.png
+	new file:   Images/image46.png
+	new file:   Images/image48.png
+	new file:   Images/image49.png
+	new file:   Images/image5.png
+	new file:   Images/image50.png
+	new file:   Images/image51.png
+	new file:   Images/image52.png
+	new file:   Images/image53.png
+	new file:   Images/image54.png
+	new file:   Images/image55.png
+	new file:   Images/image56.png
+	new file:   Images/image57.png
+	new file:   Images/image58.png
+	new file:   Images/image59.png
+	new file:   Images/image6.png
+	new file:   Images/image60.png
+	new file:   Images/image61.png
+	new file:   Images/image62.png
+	new file:   Images/image63.png
+	new file:   Images/image64.png
+	new file:   Images/image7.png
+	new file:   Images/image8.png
+	new file:   Images/image9.png
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_12-41-17_clean.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_12-53-52_clean.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_13-47-03_clean.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_14-10-36_clean.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_14-53-45_clean.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_15-24-46.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_17-02-18.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_17-02-30.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_17-34-35.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_17-56-16.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_17-57-17.txt
+	new file:   Logs_for_commands/terminal_dump_2026-10-03_19-21-02.txt
+
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git commit -m ""H"a"s"" " " L"a"b"s""  "o"u"t"p"u"t"s" "a"n"d" "c"</my-vsd-workshop$ git commit -m "Lab outputs and co"                         m"m"a"n"d" "l"o"g"s"
+[main ea0b22c] Lab outputs and command logs
+ Committer: vboxuser <vboxuser@Hitesh.myguest.virtualbox.org>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 76 files changed, 17428 insertions(+)
+ create mode 100644 Images/image 32.png
+ create mode 100644 Images/image 38.png
+ create mode 100644 Images/image0.png
+ create mode 100644 Images/image1.png
+ create mode 100644 Images/image10.png
+ create mode 100644 Images/image11.png
+ create mode 100644 Images/image12.png
+ create mode 100644 Images/image13.png
+ create mode 100644 Images/image14.png
+ create mode 100644 Images/image15.png
+ create mode 100644 Images/image16.png
+ create mode 100644 Images/image17.png
+ create mode 100644 Images/image18.png
+ create mode 100644 Images/image19.png
+ create mode 100644 Images/image2.png
+ create mode 100644 Images/image20.png
+ create mode 100644 Images/image21.png
+ create mode 100644 Images/image22.png
+ create mode 100644 Images/image23
+ create mode 100644 Images/image24.png
+ create mode 100644 Images/image25.png
+ create mode 100644 Images/image26.png
+ create mode 100644 Images/image27.png
+ create mode 100644 Images/image28.png
+ create mode 100644 Images/image29_not_as_expected.png
+ create mode 100644 Images/image3.png
+ create mode 100644 Images/image30_doesnot_has_buffers_at_inputs.png
+ create mode 100644 Images/image31.png
+ create mode 100644 Images/image33.png
+ create mode 100644 Images/image34.png
+ create mode 100644 Images/image35.png
+ create mode 100644 Images/image36.png
+ create mode 100644 Images/image37.png
+ create mode 100644 Images/image39.png
+ create mode 100644 Images/image4.png
+ create mode 100644 Images/image40.png
+ create mode 100644 Images/image41.png
+ create mode 100644 Images/image42.png
+ create mode 100644 Images/image43.png
+ create mode 100644 Images/image44.png
+ create mode 100644 Images/image45.png
+ create mode 100644 Images/image46.png
+ create mode 100644 Images/image48.png
+ create mode 100644 Images/image49.png
+ create mode 100644 Images/image5.png
+ create mode 100644 Images/image50.png
+ create mode 100644 Images/image51.png
+ create mode 100644 Images/image52.png
+ create mode 100644 Images/image53.png
+ create mode 100644 Images/image54.png
+ create mode 100644 Images/image55.png
+ create mode 100644 Images/image56.png
+ create mode 100644 Images/image57.png
+ create mode 100644 Images/image58.png
+ create mode 100644 Images/image59.png
+ create mode 100644 Images/image6.png
+ create mode 100644 Images/image60.png
+ create mode 100644 Images/image61.png
+ create mode 100644 Images/image62.png
+ create mode 100644 Images/image63.png
+ create mode 100644 Images/image64.png
+ create mode 100644 Images/image7.png
+ create mode 100644 Images/image8.png
+ create mode 100644 Images/image9.png
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_12-41-17_clean.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_12-53-52_clean.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_13-47-03_clean.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_14-10-36_clean.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_14-53-45_clean.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_15-24-46.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_17-02-18.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_17-02-30.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_17-34-35.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_17-56-16.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_17-57-17.txt
+ create mode 100644 Logs_for_commands/terminal_dump_2026-10-03_19-21-02.txt
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git branch --show-current
+main
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ git push origin main
+Username for 'https://github.com': hitesh20071985
+Password for 'https://hitesh20071985@github.com': 
+Enumerating objects: 81, done.
+Counting objects:   1% (1/81)Counting objects:   2% (2/81)Counting objects:   3% (3/81)Counting objects:   4% (4/81)Counting objects:   6% (5/81)Counting objects:   7% (6/81)Counting objects:   8% (7/81)Counting objects:   9% (8/81)Counting objects:  11% (9/81)Counting objects:  12% (10/81)Counting objects:  13% (11/81)Counting objects:  14% (12/81)Counting objects:  16% (13/81)Counting objects:  17% (14/81)Counting objects:  18% (15/81)Counting objects:  19% (16/81)Counting objects:  20% (17/81)Counting objects:  22% (18/81)Counting objects:  23% (19/81)Counting objects:  24% (20/81)Counting objects:  25% (21/81)Counting objects:  27% (22/81)Counting objects:  28% (23/81)Counting objects:  29% (24/81)Counting objects:  30% (25/81)Counting objects:  32% (26/81)Counting objects:  33% (27/81)Counting objects:  34% (28/81)Counting objects:  35% (29/81)Counting objects:  37% (30/81)Counting objects:  38% (31/81)Counting objects:  39% (32/81)Counting objects:  40% (33/81)Counting objects:  41% (34/81)Counting objects:  43% (35/81)Counting objects:  44% (36/81)Counting objects:  45% (37/81)Counting objects:  46% (38/81)Counting objects:  48% (39/81)Counting objects:  49% (40/81)Counting objects:  50% (41/81)Counting objects:  51% (42/81)Counting objects:  53% (43/81)Counting objects:  54% (44/81)Counting objects:  55% (45/81)Counting objects:  56% (46/81)Counting objects:  58% (47/81)Counting objects:  59% (48/81)Counting objects:  60% (49/81)Counting objects:  61% (50/81)Counting objects:  62% (51/81)Counting objects:  64% (52/81)Counting objects:  65% (53/81)Counting objects:  66% (54/81)Counting objects:  67% (55/81)Counting objects:  69% (56/81)Counting objects:  70% (57/81)Counting objects:  71% (58/81)Counting objects:  72% (59/81)Counting objects:  74% (60/81)Counting objects:  75% (61/81)Counting objects:  76% (62/81)Counting objects:  77% (63/81)Counting objects:  79% (64/81)Counting objects:  80% (65/81)Counting objects:  81% (66/81)Counting objects:  82% (67/81)Counting objects:  83% (68/81)Counting objects:  85% (69/81)Counting objects:  86% (70/81)Counting objects:  87% (71/81)Counting objects:  88% (72/81)Counting objects:  90% (73/81)Counting objects:  91% (74/81)Counting objects:  92% (75/81)Counting objects:  93% (76/81)Counting objects:  95% (77/81)Counting objects:  96% (78/81)Counting objects:  97% (79/81)Counting objects:  98% (80/81)Counting objects: 100% (81/81)Counting objects: 100% (81/81), done.
+Delta compression using up to 8 threads
+Compressing objects:   1% (1/79)Compressing objects:   2% (2/79)Compressing objects:   3% (3/79)Compressing objects:   5% (4/79)Compressing objects:   6% (5/79)Compressing objects:   7% (6/79)Compressing objects:   8% (7/79)Compressing objects:  10% (8/79)Compressing objects:  11% (9/79)Compressing objects:  12% (10/79)Compressing objects:  13% (11/79)Compressing objects:  15% (12/79)Compressing objects:  16% (13/79)Compressing objects:  17% (14/79)Compressing objects:  18% (15/79)Compressing objects:  20% (16/79)Compressing objects:  21% (17/79)Compressing objects:  22% (18/79)Compressing objects:  24% (19/79)Compressing objects:  25% (20/79)Compressing objects:  26% (21/79)Compressing objects:  27% (22/79)Compressing objects:  29% (23/79)Compressing objects:  30% (24/79)Compressing objects:  31% (25/79)Compressing objects:  32% (26/79)Compressing objects:  34% (27/79)Compressing objects:  35% (28/79)Compressing objects:  36% (29/79)Compressing objects:  37% (30/79)Compressing objects:  39% (31/79)Compressing objects:  40% (32/79)Compressing objects:  41% (33/79)Compressing objects:  43% (34/79)Compressing objects:  44% (35/79)Compressing objects:  45% (36/79)Compressing objects:  46% (37/79)Compressing objects:  48% (38/79)Compressing objects:  49% (39/79)Compressing objects:  50% (40/79)Compressing objects:  51% (41/79)Compressing objects:  53% (42/79)Compressing objects:  54% (43/79)Compressing objects:  55% (44/79)Compressing objects:  56% (45/79)Compressing objects:  58% (46/79)Compressing objects:  59% (47/79)Compressing objects:  60% (48/79)Compressing objects:  62% (49/79)Compressing objects:  63% (50/79)Compressing objects:  64% (51/79)Compressing objects:  65% (52/79)Compressing objects:  67% (53/79)Compressing objects:  68% (54/79)Compressing objects:  69% (55/79)Compressing objects:  70% (56/79)Compressing objects:  72% (57/79)Compressing objects:  73% (58/79)Compressing objects:  74% (59/79)Compressing objects:  75% (60/79)Compressing objects:  77% (61/79)Compressing objects:  78% (62/79)Compressing objects:  79% (63/79)Compressing objects:  81% (64/79)Compressing objects:  82% (65/79)Compressing objects:  83% (66/79)Compressing objects:  84% (67/79)Compressing objects:  86% (68/79)Compressing objects:  87% (69/79)Compressing objects:  88% (70/79)Compressing objects:  89% (71/79)Compressing objects:  91% (72/79)Compressing objects:  92% (73/79)Compressing objects:  93% (74/79)Compressing objects:  94% (75/79)Compressing objects:  96% (76/79)Compressing objects:  97% (77/79)Compressing objects:  98% (78/79)Compressing objects: 100% (79/79)Compressing objects: 100% (79/79), done.
+Writing objects:   1% (1/80)Writing objects:   2% (2/80)Writing objects:   3% (3/80)Writing objects:   5% (4/80)Writing objects:   6% (5/80)Writing objects:   7% (6/80)Writing objects:   8% (7/80)Writing objects:  10% (8/80)Writing objects:  11% (9/80)Writing objects:  12% (10/80)Writing objects:  13% (11/80)Writing objects:  15% (12/80)Writing objects:  16% (13/80)Writing objects:  17% (14/80)Writing objects:  20% (16/80)Writing objects:  21% (17/80)Writing objects:  22% (18/80)Writing objects:  23% (19/80)Writing objects:  25% (20/80)Writing objects:  26% (21/80)Writing objects:  27% (22/80)Writing objects:  27% (22/80), 1.08 MiB | 741.00 KiB/sWriting objects:  28% (23/80), 1.08 MiB | 741.00 KiB/sWriting objects:  30% (24/80), 1.08 MiB | 741.00 KiB/sWriting objects:  31% (25/80), 1.08 MiB | 741.00 KiB/sWriting objects:  32% (26/80), 1.08 MiB | 741.00 KiB/sWriting objects:  33% (27/80), 1.08 MiB | 741.00 KiB/sWriting objects:  35% (28/80), 1.08 MiB | 741.00 KiB/sWriting objects:  36% (29/80), 1.08 MiB | 741.00 KiB/sWriting objects:  37% (30/80), 1.08 MiB | 741.00 KiB/sWriting objects:  38% (31/80), 1.08 MiB | 741.00 KiB/sWriting objects:  40% (32/80), 1.08 MiB | 741.00 KiB/sWriting objects:  41% (33/80), 1.08 MiB | 741.00 KiB/sWriting objects:  42% (34/80), 1.08 MiB | 741.00 KiB/sWriting objects:  43% (35/80), 1.08 MiB | 741.00 KiB/sWriting objects:  45% (36/80), 1.08 MiB | 741.00 KiB/sWriting objects:  45% (36/80), 1.70 MiB | 853.00 KiB/sWriting objects:  46% (37/80), 1.70 MiB | 853.00 KiB/sWriting objects:  47% (38/80), 1.70 MiB | 853.00 KiB/sWriting objects:  48% (39/80), 1.70 MiB | 853.00 KiB/sWriting objects:  50% (40/80), 1.70 MiB | 853.00 KiB/sWriting objects:  51% (41/80), 1.70 MiB | 853.00 KiB/sWriting objects:  52% (42/80), 1.70 MiB | 853.00 KiB/sWriting objects:  53% (43/80), 1.70 MiB | 853.00 KiB/sWriting objects:  55% (44/80), 1.70 MiB | 853.00 KiB/sWriting objects:  56% (45/80), 1.70 MiB | 853.00 KiB/sWriting objects:  57% (46/80), 1.70 MiB | 853.00 KiB/sWriting objects:  58% (47/80), 1.70 MiB | 853.00 KiB/sWriting objects:  60% (48/80), 1.70 MiB | 853.00 KiB/sWriting objects:  61% (49/80), 1.70 MiB | 853.00 KiB/sWriting objects:  62% (50/80), 1.70 MiB | 853.00 KiB/sWriting objects:  63% (51/80), 1.70 MiB | 853.00 KiB/sWriting objects:  65% (52/80), 1.70 MiB | 853.00 KiB/sWriting objects:  66% (53/80), 1.70 MiB | 853.00 KiB/sWriting objects:  67% (54/80), 1.70 MiB | 853.00 KiB/sWriting objects:  70% (56/80), 1.70 MiB | 853.00 KiB/sWriting objects:  71% (57/80), 1.70 MiB | 853.00 KiB/sWriting objects:  72% (58/80), 1.70 MiB | 853.00 KiB/sWriting objects:  73% (59/80), 1.70 MiB | 853.00 KiB/sWriting objects:  75% (60/80), 1.70 MiB | 853.00 KiB/sWriting objects:  76% (61/80), 1.70 MiB | 853.00 KiB/sWriting objects:  77% (62/80), 1.70 MiB | 853.00 KiB/sWriting objects:  78% (63/80), 1.70 MiB | 853.00 KiB/sWriting objects:  80% (64/80), 1.70 MiB | 853.00 KiB/sWriting objects:  81% (65/80), 1.70 MiB | 853.00 KiB/sWriting objects:  82% (66/80), 1.70 MiB | 853.00 KiB/sWriting objects:  83% (67/80), 1.70 MiB | 853.00 KiB/sWriting objects:  85% (68/80), 1.70 MiB | 853.00 KiB/sWriting objects:  86% (69/80), 1.70 MiB | 853.00 KiB/sWriting objects:  88% (71/80), 1.70 MiB | 853.00 KiB/sWriting objects:  90% (72/80), 3.37 MiB | 1.33 MiB/s  Writing objects:  91% (73/80), 3.37 MiB | 1.33 MiB/sWriting objects:  92% (74/80), 3.37 MiB | 1.33 MiB/sWriting objects:  93% (75/80), 3.37 MiB | 1.33 MiB/sWriting objects:  96% (77/80), 3.37 MiB | 1.33 MiB/sWriting objects:  97% (78/80), 3.37 MiB | 1.33 MiB/sWriting objects:  98% (79/80), 3.37 MiB | 1.33 MiB/sWriting objects: 100% (80/80), 3.37 MiB | 1.33 MiB/sWriting objects: 100% (80/80), 3.41 MiB | 1.32 MiB/s, done.
+Total 80 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/9)        remote: Resolving deltas:  11% (1/9)        remote: Resolving deltas:  22% (2/9)        remote: Resolving deltas:  33% (3/9)        remote: Resolving deltas:  44% (4/9)        remote: Resolving deltas:  55% (5/9)        remote: Resolving deltas:  66% (6/9)        remote: Resolving deltas:  77% (7/9)        remote: Resolving deltas:  88% (8/9)        remote: Resolving deltas: 100% (9/9)        remote: Resolving deltas: 100% (9/9), done.        
+To https://github.com/hitesh20071985/VSDhit.shu.git
+   c312fa5..ea0b22c  main -> main
+vboxuser@Hitesh:~/Downloads/my-vsd-workshop$ exit
+exit
+
+Script done on 2026-10-03 23:03:29+05:30 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,10 @@
+Warning: There are 5 input ports missing set_input_delay.
+  ENb_CP
+  ENb_VCO
+  REF
+  VCO_IN
+  VREFH
+Warning: There is 1 output port missing set_output_delay.
+  OUT
+Warning: There is 1 unconstrained endpoint.
+  OUT

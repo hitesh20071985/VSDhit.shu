@@ -1,0 +1,30 @@
+Startpoint: _7999_ (rising edge-triggered flip-flop clocked by pll_clk)
+Endpoint: _4224_ (rising edge-triggered flip-flop clocked by pll_clk)
+Path Group: pll_clk
+Path Type: max
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.1000    0.0000    0.0000   clock pll_clk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                    0.1000    0.0000    0.0000 ^ _7999_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   275    0.6555    6.0830    4.4879    4.4879 ^ _7999_/Q (sky130_fd_sc_hd__dfxtp_1)
+   238    0.3921    1.5384    4.2760    8.7640 v _9035_/Y (sky130_fd_sc_hd__clkinv_1)
+     1    0.0017    0.2704    0.5523    9.3163 ^ _6934_/Y (sky130_fd_sc_hd__o211ai_1)
+                    0.2704    0.0000    9.3163 ^ _4224_/D (sky130_fd_sc_hd__dfxtp_1)
+                                        9.3163   data arrival time
+
+                    0.1000   25.0000   25.0000   clock pll_clk (rise edge)
+                              0.0000   25.0000   clock network delay (ideal)
+                             -0.5000   24.5000   clock uncertainty
+                              0.0000   24.5000   clock reconvergence pessimism
+                                       24.5000 ^ _4224_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                             -0.0823   24.4177   library setup time
+                                       24.4177   data required time
+-------------------------------------------------------------------------------------
+                                       24.4177   data required time
+                                       -9.3163   data arrival time
+-------------------------------------------------------------------------------------
+                                       15.1015   slack (MET)
+
+

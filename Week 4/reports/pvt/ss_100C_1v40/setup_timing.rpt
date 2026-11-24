@@ -1,0 +1,32 @@
+Startpoint: _8038_ (rising edge-triggered flip-flop clocked by pll_clk)
+Endpoint: _4661_ (rising edge-triggered flip-flop clocked by pll_clk)
+Path Group: pll_clk
+Path Type: max
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.1000    0.0000    0.0000   clock pll_clk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                    0.1000    0.0000    0.0000 ^ _8038_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     2    0.0043    0.0831    0.8352    0.8352 v _8038_/Q (sky130_fd_sc_hd__dfxtp_1)
+    45    0.0938    8.8434    7.1369    7.9721 ^ _9624_/Y (sky130_fd_sc_hd__nor4_1)
+     3    0.0066    1.4024    2.3098   10.2819 v _9614_/Y (sky130_fd_sc_hd__a31oi_1)
+    63    0.1364   23.0090   18.4859   28.7678 ^ _5630_/Y (sky130_fd_sc_hd__a2111oi_0)
+     1    0.0015    1.9788    4.7661   33.5339 v _5332_/Y (sky130_fd_sc_hd__o21ai_0)
+                    1.9788    0.0000   33.5339 v _4661_/D (sky130_fd_sc_hd__dfxtp_1)
+                                       33.5339   data arrival time
+
+                    0.1000   25.0000   25.0000   clock pll_clk (rise edge)
+                              0.0000   25.0000   clock network delay (ideal)
+                             -0.5000   24.5000   clock uncertainty
+                              0.0000   24.5000   clock reconvergence pessimism
+                                       24.5000 ^ _4661_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                             -1.2992   23.2008   library setup time
+                                       23.2008   data required time
+-------------------------------------------------------------------------------------
+                                       23.2008   data required time
+                                      -33.5339   data arrival time
+-------------------------------------------------------------------------------------
+                                      -10.3331   slack (VIOLATED)
+
+

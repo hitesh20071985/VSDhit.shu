@@ -1,0 +1,32 @@
+Startpoint: _8038_ (rising edge-triggered flip-flop clocked by pll_clk)
+Endpoint: _4661_ (rising edge-triggered flip-flop clocked by pll_clk)
+Path Group: pll_clk
+Path Type: max
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.1000    0.0000    0.0000   clock pll_clk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                    0.1000    0.0000    0.0000 ^ _8038_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     2    0.0042    0.0419    0.4723    0.4723 v _8038_/Q (sky130_fd_sc_hd__dfxtp_1)
+    45    0.0937    6.0086    4.8674    5.3397 ^ _9624_/Y (sky130_fd_sc_hd__nor4_1)
+     3    0.0064    0.9180    1.4094    6.7491 v _9614_/Y (sky130_fd_sc_hd__a31oi_1)
+    63    0.1362   13.3034   11.0117   17.7608 ^ _5630_/Y (sky130_fd_sc_hd__a2111oi_0)
+     1    0.0015    1.1227    2.8040   20.5648 v _5332_/Y (sky130_fd_sc_hd__o21ai_0)
+                    1.1227    0.0000   20.5648 v _4661_/D (sky130_fd_sc_hd__dfxtp_1)
+                                       20.5648   data arrival time
+
+                    0.1000   25.0000   25.0000   clock pll_clk (rise edge)
+                              0.0000   25.0000   clock network delay (ideal)
+                             -0.5000   24.5000   clock uncertainty
+                              0.0000   24.5000   clock reconvergence pessimism
+                                       24.5000 ^ _4661_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                             -0.7673   23.7327   library setup time
+                                       23.7327   data required time
+-------------------------------------------------------------------------------------
+                                       23.7327   data required time
+                                      -20.5648   data arrival time
+-------------------------------------------------------------------------------------
+                                        3.1678   slack (MET)
+
+

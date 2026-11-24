@@ -1,0 +1,28 @@
+Startpoint: reset (input port clocked by pll_clk)
+Endpoint: _7995_ (rising edge-triggered flip-flop clocked by pll_clk)
+Path Group: pll_clk
+Path Type: min
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.1000    0.0000    0.0000   clock pll_clk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000 ^ input external delay
+     1    0.0016    0.0000    0.0000    0.0000 ^ reset (in)
+                    0.0000    0.0000    0.0000 ^ _7995_/D (sky130_fd_sc_hd__dfxtp_1)
+                                        0.0000   data arrival time
+
+                    0.1000    0.0000    0.0000   clock pll_clk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.5000    0.5000   clock uncertainty
+                              0.0000    0.5000   clock reconvergence pessimism
+                                        0.5000 ^ _7995_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                             -0.0176    0.4824   library hold time
+                                        0.4824   data required time
+-------------------------------------------------------------------------------------
+                                        0.4824   data required time
+                                       -0.0000   data arrival time
+-------------------------------------------------------------------------------------
+                                       -0.4824   slack (VIOLATED)
+
+
